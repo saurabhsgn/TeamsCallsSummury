@@ -5,6 +5,8 @@ Local meeting assistant for Teams-style calls. It can:
 - listen live from your system speaker
 - listen live from your microphone
 - mix both together for the full meeting conversation
+- create live transcript updates while the call is running
+- create live meeting notes and live MoM updates while the call is running
 - process local audio files
 - process local video files
 - process a direct media link when you explicitly provide one
@@ -22,12 +24,14 @@ Local meeting assistant for Teams-style calls. It can:
 - technical notes
 - functional notes
 - next steps
+- minutes of meeting (MoM)
 
 Outputs are written as:
 
 - transcript text file
 - Markdown summary
 - JSON summary
+- Markdown MoM
 
 ## Local-only model flow
 
@@ -77,17 +81,13 @@ Pass it with `--llm-model`.
 
 ### 1. List live sources
 
-This shows available microphones and speakers from the local machine.
-
 ```powershell
 python main.py sources
 ```
 
 Use the returned `speaker.id` and `microphone.id` values in later commands.
 
-### 2. Capture live audio from system speaker and microphone
-
-This is the mode you asked for instead of depending on a prepared recording file.
+### 2. Capture live audio only
 
 ```powershell
 python main.py capture `
@@ -96,27 +96,7 @@ python main.py capture `
   --audio-out outputs\live_meeting.wav
 ```
 
-Press `Ctrl+C` to stop.
-
-If you only want the meeting audio coming from Teams and not your microphone:
-
-```powershell
-python main.py capture `
-  --speaker-id "<speaker-id>" `
-  --no-mic `
-  --audio-out outputs\teams_audio.wav
-```
-
-If you want a fixed duration:
-
-```powershell
-python main.py capture `
-  --speaker-id "<speaker-id>" `
-  --microphone-id "<microphone-id>" `
-  --seconds 1800
-```
-
-### 3. Capture live audio and generate notes immediately
+### 3. Capture live audio and summarize after the call ends
 
 ```powershell
 python main.py run `
@@ -127,17 +107,39 @@ python main.py run `
   --llm-model C:\models\llm\mistral-7b-instruct-v0.2.Q4_K_M.gguf
 ```
 
-### 4. Process a local audio file
+### 4. Listen live and keep updating notes and MoM during the call
 
 ```powershell
-python main.py process `
-  --source C:\meetings\call.wav `
-  --title "Weekly Delivery Review" `
+python main.py live `
+  --title "Weekly Functional Review" `
+  --speaker-id "<speaker-id>" `
+  --microphone-id "<microphone-id>" `
   --whisper-model C:\models\faster-whisper\small.en `
-  --llm-model C:\models\llm\mistral-7b-instruct-v0.2.Q4_K_M.gguf
+  --llm-model C:\models\llm\mistral-7b-instruct-v0.2.Q4_K_M.gguf `
+  --chunk-seconds 45 `
+  --summary-every-chunks 2
 ```
 
-### 5. Process a local video file
+What `live` does:
+
+- listens to system speaker and microphone continuously
+- cuts audio into local chunks
+- transcribes each chunk locally
+- keeps appending to a transcript file
+- refreshes summary and MoM files during the meeting
+- writes final versions again when the session ends
+
+If you only want Teams audio and not your microphone:
+
+```powershell
+python main.py live `
+  --title "Client Call" `
+  --speaker-id "<speaker-id>" `
+  --no-mic `
+  --whisper-model C:\models\faster-whisper\small.en
+```
+
+### 5. Process a local audio or video file
 
 ```powershell
 python main.py process `
@@ -157,36 +159,40 @@ python main.py process `
   --llm-model C:\models\llm\mistral-7b-instruct-v0.2.Q4_K_M.gguf
 ```
 
-This works for direct downloadable media links, not generic web pages.
+## How live Teams listening works
 
-## How live listening works
-
-The app does not connect to Teams directly. It listens to the machine audio devices:
+The app does not connect to Teams directly. It listens to your Windows audio devices:
 
 - system speaker capture: hears what Teams is playing on your computer
 - microphone capture: hears your microphone input
-- mixed capture: combines both into one WAV file before transcription
+- mixed capture: combines both into one stream before transcription
 
-This is the closest local-only approach to "listen to the meeting directly" without needing Teams integration or cloud services.
+That means it can work live during a Teams call without waiting for a recorded file.
 
-## Output files
+## Live output files
 
-Generated files look like:
+During `live` mode, the following files are refreshed repeatedly:
 
-- `outputs\architecture_review_YYYYMMDD_HHMMSS_transcript.txt`
-- `outputs\architecture_review_YYYYMMDD_HHMMSS_summary.md`
-- `outputs\architecture_review_YYYYMMDD_HHMMSS_summary.json`
+- `outputs\<meeting>_YYYYMMDD_HHMMSS_transcript.txt`
+- `outputs\<meeting>_YYYYMMDD_HHMMSS_summary.md`
+- `outputs\<meeting>_YYYYMMDD_HHMMSS_summary.json`
+- `outputs\<meeting>_YYYYMMDD_HHMMSS_mom.md`
+
+Chunk WAV files are also stored under:
+
+- `outputs\<meeting>_YYYYMMDD_HHMMSS_chunks\`
 
 ## Notes
 
 - On Windows, speaker capture depends on loopback support from the local audio stack.
 - If speaker capture is missing, try a different output device or a virtual audio cable.
-- `process --source` accepts audio or video as long as the local environment can decode the file.
 - Better local models improve note quality significantly.
+- Shorter chunks give faster live updates but increase processing overhead.
 
 ## Current limitations
 
 - no speaker diarization yet
-- no UI yet
-- direct media links must point to the actual media file
+- no desktop UI yet
+- live summaries are refreshed in intervals, not word-by-word
+- direct media links must point to actual media or a supported ScreenRec share page
 - very long meetings can be slow on CPU-only machines
