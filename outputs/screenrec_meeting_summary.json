@@ -1,0 +1,98 @@
+{
+  "title": "ScreenRec Meeting",
+  "generated_at": "2026-03-11T00:24:27",
+  "meeting_type": "mixed",
+  "executive_summary": "[0.00-8.96] on the screen right now. Pending means that they haven't departed yet. So if they force-log them [8.96-15.92] out, we allow them to cancel or be reassigned. But if it's en route, Anusha and Jason had [16.72-23.28] discussed that we shouldn't allow them to force-log them out to keep control and prevent abuse of the [23.28-30.24] force-log out. So Chuck, to give you an idea, right, in the APAC today, right, force-log out [30.24-36.16] and release vehicle, right, they release a vehicle when a route is in progress, right, [36.16-42.32] meaning the vehicle is free while it's actually not. So it's causing us so many challenges where [42.32-46.40] the routes are abandoned without a vehicle and all of that because we've already done the vehicle [46.40-51.76] utilization in APAC. So the people are abusing that, that's our concern, right. If a release [51.76-57.36] vehicle or force-log out are clicked while a route is in progress, we are losing, we don't know what [57.36-64.96] to do at this point, right. How do we track the vehicle or the user? Like he can't just log out [64.96-70.24] in the middle of a route, right? Yeah, I mean, I think the, I don't know if this is somewhat [7",
+  "discussed_points": [
+    "[0.00-8.96] on the screen right now.",
+    "Pending means that they haven't departed yet.",
+    "So if they force-log them",
+    "[8.96-15.92] out, we allow them to cancel or be reassigned.",
+    "But if it's en route, Anusha and Jason had",
+    "[16.72-23.28] discussed that we shouldn't allow them to force-log them out to keep control and prevent abuse of the",
+    "[23.28-30.24] force-log out.",
+    "So Chuck, to give you an idea, right, in the APAC today, right, force-log out",
+    "[30.24-36.16] and release vehicle, right, they release a vehicle when a route is in progress, right,",
+    "[36.16-42.32] meaning the vehicle is free while it's actually not.",
+    "But the deployment tonight.",
+    "How do we track the vehicle or the user?"
+  ],
+  "decisions": [
+    "[70.24-77.68] of a tangent to that, but there is a need for us to be able to finalize, I guess finalize a route",
+    "[78.64-82.88] because maybe the driver forgot to finalize it, they forgot to, you know, sign out of the tablet,",
+    "So today I think we can do that before we can finalize a route.",
+    "[89.52-94.16] maybe if they're anywhere within that route, excuse me, I think we can finalize it and it",
+    "[132.00-139.36] the usual, you know, being able to finalize a route while it's in progress, just for the sake of",
+    "[139.92-146.80] being able to finalize that route, right?",
+    "[152.40-157.12] So finalize it.",
+    "[188.00-193.20] complete as you are calling it as finalize route, right?",
+    "[638.69-646.69] driver through the mobile app to finalize the route, what is the other alternative?",
+    "[701.09-705.73] finalizing, because I mean, we at least can do that today, right?"
+  ],
+  "action_items": [
+    "[110.80-117.20] need to do it if they are on a route would be because, you know, the driver didn't complete",
+    "[162.48-168.64] just because lots of users are still on 1.37 and all of them need to be on the latest mobile app,",
+    "We will turn it on once all the mobile devices are updated",
+    "[298.16-305.84] how do we do the force, the four, how do we do the force finish of a route when we still need to?",
+    "[342.24-345.60] up that vehicle, they will not be able to like, use it.",
+    "[404.40-410.24] But Hermita, correct me if I'm wrong, releasing a vehicle mid route in USAG will have no impact,",
+    "Because you're used to lady, you will always have that win on that route after that.",
+    "[417.12-418.00] It will be on the route.",
+    "[514.21-518.53] have the optimizers or anything running, but in future it will cause issues is my concern",
+    "Like let the vehicle be released and the driver will come"
+  ],
+  "open_items": [
+    "Pending means that they haven't departed yet.",
+    "[245.68-254.00] your question.",
+    "I think the answer to that question is no,",
+    "And another question is,",
+    "[418.56-426.16] So the question is like, okay, if for this particular scenario, can we look for if we are",
+    "[477.41-480.69] I just have a question around the the APAC problem.",
+    "[599.41-608.53] But yeah, I mean, I see in a pending scenario that being a lot more tricky, I also don't disagree",
+    "But I guess my only question would be, if we",
+    "[633.81-638.69] My only question would be, when they're in a scenario where they cannot somehow get the",
+    "So how about for phase one, we keep release vehicle and force log out open even for en route,"
+  ],
+  "risks_or_blockers": [
+    "So the people are abusing that, that's our concern, right.",
+    "[456.80-461.84] cases if they're clicking this is my concern.",
+    "[514.21-518.53] have the optimizers or anything running, but in future it will cause issues is my concern",
+    "[789.09-794.05] out to support to us or if the dispatcher marks it as complete, that issue will still persist.",
+    "So they know that it's, it's at risk.",
+    "Yeah, it's at risk and past risk.",
+    "It's a dependency on them.",
+    "If there is a dependency, we call it down.",
+    "[4090.85-4095.81] As we need to finalize this huge blocker guys, a huge blocker."
+  ],
+  "conclusions": [
+    "[70.24-77.68] of a tangent to that, but there is a need for us to be able to finalize, I guess finalize a route",
+    "[78.64-82.88] because maybe the driver forgot to finalize it, they forgot to, you know, sign out of the tablet,",
+    "So today I think we can do that before we can finalize a route.",
+    "[89.52-94.16] maybe if they're anywhere within that route, excuse me, I think we can finalize it and it"
+  ],
+  "technical_notes": [
+    "But the deployment tonight."
+  ],
+  "functional_notes": [
+    "How do we track the vehicle or the user?",
+    "Which we are in the process of updating for all the company owned stores,",
+    "We are in the process of updating them.",
+    "[292.56-297.44] workflow, or maybe how do these workflows kind of get combined?",
+    "[443.68-449.52] about this in this way, this user and vehicles are available by optimizers, right?",
+    "[461.84-462.88] and this user is available.",
+    "[550.93-555.33] Sorry, forced logout was to make sure optimizer doesn't pick up that user again.",
+    "If vehicle is available and user",
+    "[731.57-736.45] business problem we're trying to solve is I get not wanting to release vehicles or force people",
+    "[799.89-804.37] making the screen stuck or a completed user was sent back to a completed route and"
+  ],
+  "next_steps": [
+    "[110.80-117.20] need to do it if they are on a route would be because, you know, the driver didn't complete",
+    "[162.48-168.64] just because lots of users are still on 1.37 and all of them need to be on the latest mobile app,",
+    "We will turn it on once all the mobile devices are updated",
+    "[298.16-305.84] how do we do the force, the four, how do we do the force finish of a route when we still need to?",
+    "[342.24-345.60] up that vehicle, they will not be able to like, use it.",
+    "[404.40-410.24] But Hermita, correct me if I'm wrong, releasing a vehicle mid route in USAG will have no impact,",
+    "Pending means that they haven't departed yet.",
+    "[245.68-254.00] your question."
+  ]
+}

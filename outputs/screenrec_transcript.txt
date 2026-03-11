@@ -1,0 +1,810 @@
+[0.00-8.96] on the screen right now. Pending means that they haven't departed yet. So if they force-log them
+[8.96-15.92] out, we allow them to cancel or be reassigned. But if it's en route, Anusha and Jason had
+[16.72-23.28] discussed that we shouldn't allow them to force-log them out to keep control and prevent abuse of the
+[23.28-30.24] force-log out. So Chuck, to give you an idea, right, in the APAC today, right, force-log out
+[30.24-36.16] and release vehicle, right, they release a vehicle when a route is in progress, right,
+[36.16-42.32] meaning the vehicle is free while it's actually not. So it's causing us so many challenges where
+[42.32-46.40] the routes are abandoned without a vehicle and all of that because we've already done the vehicle
+[46.40-51.76] utilization in APAC. So the people are abusing that, that's our concern, right. If a release
+[51.76-57.36] vehicle or force-log out are clicked while a route is in progress, we are losing, we don't know what
+[57.36-64.96] to do at this point, right. How do we track the vehicle or the user? Like he can't just log out
+[64.96-70.24] in the middle of a route, right? Yeah, I mean, I think the, I don't know if this is somewhat
+[70.24-77.68] of a tangent to that, but there is a need for us to be able to finalize, I guess finalize a route
+[78.64-82.88] because maybe the driver forgot to finalize it, they forgot to, you know, sign out of the tablet,
+[82.88-88.64] all that good stuff. So today I think we can do that before we can finalize a route. And I think
+[89.52-94.16] maybe if they're anywhere within that route, excuse me, I think we can finalize it and it
+[94.16-102.16] just like closes the route out and it releases that driver. So in this scenario,
+[103.12-110.80] I'm making a dispatcher force-log out. Yeah, I mean, the only reason why I think they would maybe
+[110.80-117.20] need to do it if they are on a route would be because, you know, the driver didn't complete
+[117.20-121.92] the route for some reason or the, for whatever reason the tablet got locked up and all the above.
+[123.20-131.04] So I guess to say that my only scenario would be, maybe it's not force-log out, maybe it's
+[132.00-139.36] the usual, you know, being able to finalize a route while it's in progress, just for the sake of
+[139.92-146.80] being able to finalize that route, right? Not so much to try to force-log them out or
+[146.80-151.84] sign them into another route or anything like that. Does that make sense?
+[152.40-157.12] So finalize it. So we have something called mark route as complete on the dispatch app. It's
+[157.12-162.48] behind the flag right now, right? We didn't onboard it to everybody. We didn't turn it on
+[162.48-168.64] just because lots of users are still on 1.37 and all of them need to be on the latest mobile app,
+[168.64-171.76] right? Which we are in the process of updating for all the company owned stores,
+[172.48-178.48] right? We are in the process of updating them. Once they are on that, the dispatcher can mark
+[178.48-183.04] the route as complete, meaning only a back to store. So say he has finished all his deliveries,
+[183.04-188.00] he came back to the store, but he didn't finish his back to store, meaning mark the route as
+[188.00-193.20] complete as you are calling it as finalize route, right? So dispatcher can do it, right? We didn't
+[193.20-199.04] turn it on, it's in production though. We will turn it on once all the mobile devices are updated
+[200.00-203.76] to the latest version. Right now they are on two different versions. Some half of them are on
+[203.76-209.76] 1.37, half of them are on 1.40. That's the reason we didn't do that yet. So you're saying
+[210.48-218.72] if a force log out, if they're, so my idea was just, if they're trying, there's this mark
+[218.72-224.16] Goodman guy, right? If they are in here and this guy is in an active route and that's in progress,
+[224.16-228.08] they have been departed from the store, just disable these buttons, release vehicle and force
+[228.08-234.48] log out. But you are saying if they are disabled, they need some kind of indicator to go mark the
+[234.48-240.16] route as complete, the dispatcher? No, I mean, I think there's like two problems, not two problems,
+[240.16-245.68] but two things that we're trying to do here, right? First, the first one maybe is more gear towards
+[245.68-254.00] your question. And that is, do we allow them to release a vehicle or force log out for a
+[254.96-259.84] route with a driver that is in route? I think the answer to that question is no,
+[260.56-262.48] right? I don't, because there's too much,
+[265.36-270.56] this is too much to kind of understand. And when we also, there's too much to understand, right? Like
+[270.56-274.96] how far along are they? Should some be marked as delivered? Should some not be? Which cues do
+[274.96-280.48] they go back in, right? There's too much to try to figure out. So I don't think we should allow
+[280.48-285.68] force log out or whatever, if it's in route. And if it means disabling the buttons, okay,
+[286.64-292.56] I'm okay there. The only use case that I'm thinking of is when we, and then maybe it's a different
+[292.56-297.44] workflow, or maybe how do these workflows kind of get combined? And another question is,
+[298.16-305.84] how do we do the force, the four, how do we do the force finish of a route when we still need to?
+[306.64-307.44] Yeah, we haven't.
+[307.44-308.32] Whatever that reason is.
+[309.20-315.04] So yeah, we can't, currently we can't mark stops as complete, right? So the problem that
+[315.04-321.04] I see is running into a driver, four stops, finished two stops on the delivery tracker,
+[321.04-326.56] finished two stops offline, but never finished it on protractor, like maybe the device turned off.
+[326.56-331.36] And now that vehicle is locked with that driver, and he has like an incomplete route with two
+[331.36-337.28] stops that are incomplete, we currently have no way to mark those stops as complete. So we still
+[337.28-342.24] need release vehicle in that scenario, right? Because otherwise, the driver who's gonna pick
+[342.24-345.60] up that vehicle, they will not be able to like, use it.
+[346.16-352.08] So Prince, that's the problem, right? See, that's a, without a signature, we cannot mark that,
+[352.08-356.40] that's a problem we're trying to address. We shouldn't allow that as my problem. So you're
+[356.40-361.36] saying, let's take the scenario, he's switched off the route. He's sorry, the tablet is switched
+[361.36-364.08] off, meaning we're losing proof of delivery at this point.
+[364.08-364.40] 100%.
+[365.20-370.00] Right. So as soon as the switch comes back to the store, he needs to charge his device and
+[370.00-374.00] get it back online so that we can be synced up. Otherwise, it's a huge problem.
+[374.00-379.68] For sure. But if the driver leaves, again, if the driver leaves the store, and if the device is
+[379.68-384.00] actually turned off, and he was not able to take signatures or click pictures for those two stops,
+[384.00-389.36] we're never going to get those signatures anyways. My point is we should not, I don't think the
+[389.36-393.84] solution here is to complete stops on their behalf. But we should still be able to release
+[393.84-397.04] the vehicle in case another driver wants to use it. That's all.
+[397.12-401.20] And there is a potential of misusing it is what I'm saying. That's what we've observed in APAC.
+[401.76-404.40] They have been releasing vehicles without finishing the route.
+[404.40-410.24] But Hermita, correct me if I'm wrong, releasing a vehicle mid route in USAG will have no impact,
+[410.24-415.28] right? Because you're used to lady, you will always have that win on that route after that.
+[415.28-416.00] Do we need it?
+[417.12-418.00] It will be on the route.
+[418.56-426.16] So the question is like, okay, if for this particular scenario, can we look for if we are
+[426.24-429.36] force log out the driver, then only we can release the vehicle.
+[431.92-432.72] It's still the same.
+[432.72-438.72] Yeah, but here's the theme when we say release vehicle, you are making sure that this vehicle
+[438.72-443.68] is available for the optimizer for future use. When you say force log out, you're saying think
+[443.68-449.52] about this in this way, this user and vehicles are available by optimizers, right? We are trying
+[449.52-456.80] to adjust like we're trying to code solution for edge cases. But what happens in majority
+[456.80-461.84] cases if they're clicking this is my concern. And optimizer is thinking this vehicle is available
+[461.84-462.88] and this user is available.
+[464.40-468.32] Yeah, that's why I'm telling you if you do the force log out because force log out can be done
+[468.32-477.41] by the dispatcher like if from the store. And go ahead, Chuck.
+[477.41-480.69] I just have a question around the the APAC problem.
+[483.01-485.49] So you said APAC is kind of abusing this a little bit.
+[485.65-489.17] A little bit, right? We tried to train them and tell them. So what happened?
+[489.17-491.97] I can give you the exact scenario and Hermita correct me if I'm wrong.
+[491.97-497.25] So today, right? They have a route, right? They forget finishing back to store stop,
+[497.25-501.25] right? They come back to the store. You have all the freaking signatures, everything,
+[501.25-506.69] proof of deliveries, but when they are en route, right, they click the release vehicle.
+[506.69-510.21] I mean, the vehicle is still assigned to the route. That's fine. In APAC,
+[510.21-514.21] even if they're abusing it, it's not causing any major issues because we don't
+[514.21-518.53] have the optimizers or anything running, but in future it will cause issues is my concern
+[518.53-523.57] for our USAG use case because now the optimizer thinks both the driver and vehicle are available,
+[524.21-530.61] if that makes sense. Even if they release the vehicle out today in APAC, the advantage is that
+[530.61-536.85] we don't care about it a lot, right? Like let the vehicle be released and the driver will come
+[536.85-540.93] back to the store, the vehicle will be available, but the route is still attached to the vehicle.
+[540.93-547.01] But in our case, in USAG case, the whole point of releasing a vehicle and forcing logout is
+[547.01-550.37] both of them will be available for the optimizer to create new routes.
+[550.93-555.33] Sorry, forced logout was to make sure optimizer doesn't pick up that user again.
+[556.29-562.05] Yeah. I mean, forced logout, that point for both of them, right? If vehicle is available and user
+[562.05-566.13] is available, we'll send that mapping, right, to the optimizer, or both of these are available
+[566.13-571.33] now, even though they are in route. And I'm assuming if we click forced logout,
+[571.33-578.37] we're probably releasing the vehicle at the same time. So yeah, it makes the vehicle potentially
+[578.37-585.73] available for the optimizer if there's somebody else associated to it. And then it also, to your
+[585.73-593.57] point, it should remove the eligibility for that particular driver for forced logout and that
+[593.57-597.81] driver is no longer eligible as well. And they're probably obviously not associated with the vehicle.
+[599.41-608.53] But yeah, I mean, I see in a pending scenario that being a lot more tricky, I also don't disagree
+[608.53-613.97] that if they've missed the PODs, they've missed the PODs. You're not really going to be able to
+[613.97-621.25] go back and get those retroactively very easily. But I guess my only question would be, if we
+[621.25-627.89] don't, you know, if something is in route and we don't allow release vehicle and force out,
+[628.61-631.33] which I'm okay with, I think in the beginning, I think that's fine.
+[633.81-638.69] My only question would be, when they're in a scenario where they cannot somehow get the
+[638.69-646.69] driver through the mobile app to finalize the route, what is the other alternative? Is it to go
+[646.69-651.57] mark as complete once it's ready? I know it's not available today, but I mean, is that our only
+[651.57-658.37] other option? Yeah, we should let them allow each stop to complete, but that has more implications,
+[658.37-662.77] right, Chuck? How will invoice domain deal with the invoice print signatures at this point?
+[663.73-667.49] Well, that was like when we had asked for that feature originally, and I think there was a bit
+[667.49-674.45] of a maybe just a requirements gap there, but it was like, you know, we kind of would force each
+[674.45-682.05] force complete each stop along the way. And yeah, we've lost the ability in those scenarios to get
+[682.05-687.73] the PODs and signatures and photos and all that stuff. So we kind of know that. It's also the,
+[688.85-693.01] you know, they're probably some sort of a threshold where we would look for stores abusing it.
+[694.53-700.21] But, but yes, so I don't, you know, I guess at the worst case scenario, if it's just
+[701.09-705.73] finalizing, because I mean, we at least can do that today, right? I think you said it's
+[705.73-712.61] not turned on everywhere, but we can at least finalize the entire route if needed.
+[714.53-718.85] We just can't stop by the store. It's just the back of the store. So yeah,
+[718.85-725.49] if the earlier stops are not, if the earlier stops are not, then the back that you, there's
+[725.49-731.57] no, you cannot even complete the back. Yeah. Yeah. Yeah. So, I mean, from a, I guess the
+[731.57-736.45] business problem we're trying to solve is I get not wanting to release vehicles or force people
+[736.45-741.49] out when something's in a route. I think that just makes it more complicated, but we will need
+[741.49-748.69] help for those. How do we release a driver from a stuck route or a frozen route or whatever?
+[748.69-753.57] There's never such a route, Chuck. If the driver's online, they can always complete a route.
+[754.21-760.93] Yeah. I mean, I get that, but there's, yeah, we still get scenarios where people are saying
+[760.93-765.09] like, couldn't finish the route. And we don't actually, we haven't seen any tow truck issues
+[765.09-770.45] like that so far. Yeah. Recently we haven't seen, we've made a lot of fixes, Chuck, like maybe one
+[770.45-780.29] in two months or something, but we haven't received any incidents in the past six months,
+[780.29-784.93] right? We've made it better. Yeah. And there were a couple that we found recently,
+[784.93-789.09] but rebooting device did fix it, which they would have to do anyways, even if they reach
+[789.09-794.05] out to support to us or if the dispatcher marks it as complete, that issue will still persist.
+[794.05-799.89] But even those, we have like pushed out some bug fixes, like where auto drive was
+[799.89-804.37] making the screen stuck or a completed user was sent back to a completed route and
+[804.37-807.89] route in progress, and there's no action button or a way to leave that screen.
+[807.89-810.53] So we have fixed all of those and we fixed them as they come.
+[811.73-818.05] Okay. Well then, yeah, I mean, I guess the thing would be if we don't allow them to release or
+[818.05-824.69] force out, force log out while in route, their only other option is to complete the route
+[825.65-832.85] on the tablet side, you know, whether they, you know, completed throughout their normal
+[832.85-836.93] route journey, or maybe they have to finish completing it because something got missed or
+[837.49-839.97] didn't update correctly and they're just doing it back at the store.
+[841.81-846.69] Problem again, I see is like a device, two stops and completed got turned off,
+[847.89-852.93] came back to the store and drive left. That doesn't happen often, right?
+[852.93-856.53] Oh, it did. Actually, I saw a problem in tow truck once.
+[857.57-863.57] Yeah, one we should cover first happy scenario and then corner edge case scenarios.
+[863.73-870.69] Yeah. So how about for phase one, we keep release vehicle and force log out open even for en route,
+[870.69-873.73] because we can see how many people are misusing it.
+[873.73-879.73] Yeah, I mean, but then what's the, what's the outcome of that? Like what happens?
+[879.73-886.85] That is the problem. You force log out a user, you're making sure that that user is not
+[887.81-895.97] available to the optimizer anymore, right? The whole point of force log out is driver forgot
+[895.97-899.89] to log out while taking a lunch break or any kind of break or like when he left for the evening,
+[900.61-903.57] right? So that's when everything else goes on.
+[905.01-908.29] Yeah, what happens to all the stuff that's in round though, that may be like,
+[909.01-913.25] whatever, I know we may have, there may be a combination of some that are completed and
+[913.33-917.73] some that are not completed. What happens to all those invoices?
+[917.73-919.73] They can always come back in and complete, right?
+[920.61-931.41] See, I think if it is in a route, if you have a driver already tied in a route, and if that
+[931.41-937.41] route is not completed, you cannot force log out whether they are taking break or not,
+[937.41-941.73] because they're not available anyway, because they're not completed the route, isn't it?
+[941.81-943.09] What's the point of force?
+[943.73-948.13] Because optimizer will keep thinking driver is coming back to the store at ETA and they
+[948.13-950.77] can be assigned a new route. We need some way to.
+[950.77-959.34] Yeah, maybe, but you cannot force log out on what condition you will force log out.
+[959.34-964.38] So that was the idea, Vani. Disable this button when they're in a route. Don't let
+[964.38-968.70] dispatcher force log out the user at all. Only when he comes back, force log it out,
+[969.34-973.58] comes back to the store or, you know, this is for lunch breaks, basically,
+[973.58-977.42] when the driver forgets, right? That's the point I was asking.
+[977.42-982.94] If the route hasn't departed from the store, then, oh, sure, force log out, tackle the,
+[982.94-986.22] we give them, the idea was, Chuck, if we discuss in the last session, right?
+[986.22-991.82] We give them only two options, either cancel the entire route or reassign the route to a
+[991.82-996.62] driver, only two options. If the driver is in pending status, but if he's en route,
+[996.62-1003.98] we have to have some restrictions because it's risky to, we are telling cancel the entire
+[1003.98-1008.94] route is not right. No, not for en route, for pending statuses. They haven't departed the
+[1008.94-1013.34] store yet. So one district check one. What do you think?
+[1015.18-1020.94] Yeah, I guess I just need to think this through. So I'm okay with the pending stuff.
+[1020.94-1023.10] That all made sense yesterday, but en route.
+[1023.82-1029.42] So if, if we've, and I don't know what it really changes, I guess. So if we have this guy that's
+[1029.42-1036.30] en route, and then let's just say we force log them out, right? So now we're still gonna,
+[1037.18-1041.34] I guess, track. No, we're not. Like we lose all of that.
+[1041.34-1041.84] Exactly.
+[1042.94-1045.02] Yeah, I just don't know if I like any of that.
+[1046.54-1050.70] Because we lose everything, right? I mean, like if we click force log out,
+[1050.70-1054.78] and they just began their route, or it doesn't matter if they're halfway through it,
+[1054.78-1058.54] we're going to lose and the driver's not going to know what happened, right? So then he's probably
+[1058.54-1064.70] going to be trying to log back in. I don't know. I, I'm almost thinking we don't allow
+[1066.06-1069.58] the force log out or release a vehicle for anything en route.
+[1070.54-1072.94] Just because there's just so many unknowns after.
+[1073.50-1074.00] Exactly.
+[1074.54-1080.30] I have one thing. What if we look at the driver location, right? That way we can still
+[1080.30-1085.34] know if the driver's app is on. And if the driver's app is on, they should still be able
+[1085.34-1090.62] to do some action on their device. Once you're logged out, you won't even have location prints.
+[1090.62-1095.98] But no, that's what I'm saying. We don't allow them to force log out if the location of that
+[1095.98-1100.86] driver is being reported to our back ends. We only allow them to force log out if the driver's
+[1100.86-1108.54] been inactive for the last five minutes, let's say. Yeah, sure. But that's the same as
+[1108.54-1113.42] in progress, right? If a route is in progress, we're anyway collecting location every 30 seconds.
+[1113.42-1115.50] Now we are talking about offline online mode.
+[1116.06-1121.10] No, no, no. Oh yeah, you're right. They could be offline and that's why their
+[1121.10-1124.54] location is not reported and the driver can still force log out.
+[1126.06-1130.14] But actually, what does this force log out do? Does it like mark the driver's
+[1130.14-1133.90] app status as stale? And then when they try to go back into protractor, they can.
+[1134.46-1140.46] The force log out will send the notification to the driver and we'll make them log out.
+[1140.46-1143.82] We'll also record in the back end that this user is logged out. And we'll also
+[1144.38-1148.62] give it to the optimizer that this guy is not available anymore because he's on a lunch break
+[1148.62-1154.78] or something. And once he logs in, the next time it automatically shows the status green here
+[1154.78-1163.26] that he's logged in after his lunch break. Yeah, my vote right now is no forced logouts
+[1163.26-1170.78] or releasing of vehicles for in route, in route routes. Just because to your point,
+[1170.78-1174.94] like I said, the driver's out on a route thinking everything is going smooth and then all
+[1174.94-1177.82] of a sudden he gets logged out of the app. He doesn't know what to do.
+[1179.50-1182.70] There's just a lot of things that I could see it causing.
+[1183.34-1187.90] And Chuck, we can do this for phase one. See, people are complaining, right? We can
+[1188.54-1194.94] work around it. Yeah, I'd say shut the door for now. And then if people ask to have the
+[1194.94-1199.90] door back up, maybe we will. But I just, I feel like it just opens up way too much.
+[1200.70-1205.10] Yeah. And this implementation will change with Workday and the pilot stores that are
+[1205.10-1209.02] actually going to use this version. I think we will have a private chat with them. So any
+[1209.02-1212.86] kind of these issues, they should just report directly to us and we can force log out on their
+[1212.86-1218.86] behalf if it's a valid scenario. Yeah, I mean, I appreciate obviously giving them a quick
+[1218.86-1224.46] lifeline, but we definitely need to make sure that, and here I am, but that we log out those
+[1224.46-1228.78] incidents too, right? So we know how often that's happening. But yeah, I appreciate it. We're going
+[1228.78-1232.94] to have to figure out how to give them VIP treatment, but also how do we capture the
+[1236.22-1239.66] metrics. So anyway, how do we, yeah, so all that stuff.
+[1240.14-1244.38] Like I'm making a note to calculate metrics on how many people are doing this as well,
+[1244.38-1253.18] right? Just to see what, if we allow them the option. Yeah. Okay. So moving on, Chuck,
+[1253.18-1259.10] I want to move on from en route and talk about pending. So Madison, can you click the UX once
+[1259.10-1267.26] more? So the idea for en route is, I mean, just the UX here. Yeah, just that. Yeah.
+[1267.26-1272.14] So Chuck, today, when you click the four online, right, that in the routes,
+[1272.14-1276.38] this active drivers appear. Okay. At least that's what the prototype says today,
+[1276.38-1281.66] right? And for pending, the Madison, we need to finalize the UX flow, meaning
+[1282.22-1286.86] for pending routes, meaning they haven't departed. They click release vehicle or force log out,
+[1286.86-1293.58] right? What should the screen do? Should it display our route details model and just allow
+[1293.58-1298.22] them to reassign the route? What if there are multiple routes? That flow is not finalized yet.
+[1299.66-1311.81] If you see FR11 not confirmed because of the UX flow. Yeah. Okay. So we've got a pending route
+[1311.81-1316.45] as not yet. Two pending routes for mark. Let's assume two pending routes for mark.
+[1316.45-1325.49] Just this one and assume there's a second one down here. Yeah. Okay. And the question is just
+[1328.50-1332.10] for him for mark himself. Are you just saying if we release, I'm sorry, if we
+[1332.74-1338.98] force log him out, he's out of both. Yeah, we'd have to release both. Correct.
+[1340.34-1345.94] Yeah. So that's the thing, right? So what we are saying is we have to show a disclaimer
+[1345.94-1351.86] somehow here saying this guy, Mark is assigned to two routes. Please reassign them or something,
+[1351.86-1357.54] make them forced to reassign or, you know, cancel the route. Canceling is bad,
+[1357.54-1362.74] but at this point we can't let idle routes live there. Right. No question. Yeah. We need to be,
+[1362.74-1372.42] yeah. We need to be able to basically clear them so that we can either reroute the invoices or,
+[1373.78-1376.26] you know, build a second or an additional route.
+[1378.90-1382.66] The only thing I'm kind of hung up on, which maybe I shouldn't be, is why I'm like thinking
+[1382.66-1387.22] about it here is this Mark guy, right? Let's say he's got two routes that he hasn't even
+[1387.22-1391.94] departed yet. Like I would really be questioning why do we already have a second round created for
+[1391.94-1397.46] this guy when he hasn't even departed for the first route yet. Because I shouldn't get too
+[1397.46-1401.94] hung up on that yet, but I just feel like that's a little too far down the road.
+[1402.58-1407.06] Yeah. Agreed. That was my scenario. Okay. Maybe just one route then. See,
+[1407.06-1412.74] I'm coming back now. It's 1126. I'm coming back 1145. My optimizer saw that the driver
+[1412.74-1416.50] is available at 1145 immediately, right? Because we still don't have the shift
+[1416.50-1420.18] towers with them. We'll get that in phase three. So he's logged in. We're assuming that he's
+[1420.18-1424.66] available. So optimizer sees that he's coming back at 1145 and creates a route because he,
+[1424.66-1429.22] a new silver order came in, right? That's the scenario I'm talking about.
+[1429.78-1436.74] Sure. Okay. So then the question is, we wouldn't based on the answers previously,
+[1436.74-1440.58] if he's on an active route now and he's coming back with another route
+[1441.46-1448.42] that will be available. We can't force log him out until the original route is completed.
+[1449.30-1453.78] Which means the second route would still be pending before he departs. We should be able
+[1453.78-1457.86] to force log out at that point. And then everything just flows like we talked about
+[1460.74-1464.98] previously. Or we don't have to worry about that ending one out. Yeah. I just...
+[1465.86-1474.50] I have the same question, Chuck. I have the same question you're asking. If a particular driver
+[1475.22-1480.82] has a route that was created and he has or she has not left the building,
+[1481.78-1487.38] how is the optimizer looking into the, and creating the second route? Because there is
+[1487.38-1491.78] SRTs in that as well. How are we making that? If it's a new guy...
+[1491.78-1494.66] It should not be a no rush delivery for the end of the day.
+[1494.66-1499.86] No, no, no. It should not be a no rush. Assume happy scenario based on the data that Venkat has
+[1499.86-1509.86] shared. It's always platinum and silver that is highest order flow into the stores. And for the
+[1509.86-1516.50] larger stores, also it is the same pattern that we have seen. So if that is the case, then how
+[1516.58-1522.10] are we creating the second route? We should not be creating... Yeah, of course. Manually,
+[1522.10-1528.90] somebody is creating it. You cannot stop it for manually creating it. You can tell,
+[1528.90-1534.82] hey, the driver, there is only one driver available and he's trying to route. Are you
+[1534.82-1541.38] okay to override this based on that? Then that's a warning message that has to go
+[1541.38-1550.74] to the dispatcher because there is only one driver and the driver has not left from the store
+[1550.74-1560.82] itself. So only if they leave the store, you know the exit time and the entry time. And then...
+[1560.82-1566.50] The problem here, I think, is we initially said that we will keep creating routes.
+[1567.30-1573.22] We will never leave invoices unassigned. We cannot create routes. It's not about creating routes.
+[1573.78-1578.02] What's the goal? We always have to think, what's the goal? The goal is to fulfill
+[1578.02-1585.34] ship on time. Creating the route doesn't make sense if nobody is delivering.
+[1585.98-1592.94] Yeah. And I see that point, right? Because I think earlier we said 5% of the invoices are no rush.
+[1592.94-1599.42] And because of Venkat's research, I think 50 to 60% of the invoices are platinum.
+[1599.98-1605.02] So I don't see this... I don't think we will have more assigned routes like that.
+[1605.02-1610.86] Most cases, yeah. So that's why I was saying, right? Let's take out two routes then. Just one route.
+[1610.86-1615.50] Well, how should the UX flow? That's why I said, for now, let's take out two routes.
+[1616.06-1621.18] This mark guy has one route in pending because he is coming back to the store in five or ten
+[1621.18-1628.46] minutes. Let's say he's coming back at 11.35. We can talk through that scenario, right? How
+[1628.46-1633.50] should the flow look like? Like he clicked force log out here. We show him a disclaimer.
+[1633.58-1641.02] We have to show something and this is the route that is assigned to that. Please reassign it
+[1641.02-1645.10] or cancel it. Yeah, I think it's the same flow as when you're trying to do that.
+[1645.74-1650.30] You're creating an ad hoc route. Yeah, exactly. Creating that ad hoc route. You're trying to
+[1650.30-1654.54] assign it to somebody who's already got a route assigned to them, maybe hasn't been departed yet.
+[1654.54-1658.62] And then we say, oh hey, this guy's already got a route. What do you want to do? And then we
+[1658.62-1664.38] can say, yeah, I want to assign the guy that I'm doing this ad hoc for the route that I'm
+[1664.38-1669.58] requesting now. Meanwhile, that other route, which I'm pretty sure we just said would be
+[1669.58-1675.50] broken back down and put back into the... Ready. Not ready for the invoice.
+[1675.50-1680.86] Right. Exactly. Just reset the status for all those invoices because then now, or I guess there
+[1680.86-1685.66] was two things. They could assign the route to a whole new driver, right? The whole route to
+[1685.66-1692.22] another driver. But if they canceled all that, it would just release everything. Put it all back in
+[1692.22-1697.74] the queue for them to create a route again shortly after, I'm assuming, and it could be with all or
+[1697.74-1703.26] some or a combination of the invoices that were on the original route. I would see it just being
+[1703.26-1707.58] the same thing here. And if we have a guy with a pending route and we're trying to force log him
+[1707.58-1712.30] out, we want a similar flow. So I would say, it either could come up and say, hey, this guy's
+[1712.38-1717.82] got a route. Do you want to assign it to another driver or do you want to cancel it? And then if
+[1717.82-1721.34] we canceled it, it would just put it all back in the queue. If we say, yeah, we just want to
+[1721.34-1725.90] assign it to another driver, we just give it to that other driver. Because it may be like, hey,
+[1725.90-1730.86] you know, Prince, you go to lunch, Chuck, you take this. You take this route instead,
+[1730.86-1737.58] and it's just that easy, right? Or it could be like, let's just return it all back to the queue
+[1737.58-1742.86] and then we can work on it, whatever. We can break it into two routes or whatever we end up doing.
+[1743.74-1749.74] Yep. Okay. And just quickly, I think we have discussed this before, but the new driver that
+[1749.74-1754.06] the route is being assigned to, that driver has to be available and shouldn't have any routes
+[1754.06-1760.30] assigned to them, right? Yes. So there's a new UX design, Prince, where we'll show a green icon
+[1760.30-1765.26] while assigning the route and the red icon, right? So I think it'll help the dispatches
+[1765.26-1770.38] to select. My only thing is, like, what if the driver is on the route and coming back to the
+[1770.38-1776.69] store? Can the driver still reassign it to that driver? Right now, we are not restricting it.
+[1778.13-1784.21] Okay. Because the problem is what if that... Yeah, because the problem is what if the driver
+[1784.21-1790.37] has another route assigned, which is after the current one, then we can't allow reassigning to
+[1790.37-1795.81] that driver because that driver already has a stacked route that they have to do. So I think
+[1795.81-1801.81] we have to find out that case where the driver is either coming back from a stop or coming back
+[1801.81-1806.37] to the store in, like, 10, 15 minutes and they don't have a new route assigned. I think that's
+[1806.37-1813.66] the only way we can reassign it. Do we want to restrict it that further, Shaq? Like,
+[1813.66-1818.30] if they're already on a route and coming back, we want to not show them on the reassigned driver
+[1818.30-1823.10] list? Yeah, I mean, it would make sense. And I don't know if we thought about that yet today
+[1823.10-1827.82] when I was looking at the original diagrams. The color coding piece is good because it's at
+[1827.82-1836.94] least somewhat of a visual cue. But there should also be the ability that like, hey, I want to cue
+[1836.94-1843.26] this up behind this driver who's on his way back but maybe doesn't have any routes appending yet.
+[1843.82-1848.78] I think that'd be a valid scenario. So it's just there and ready. And then I would agree
+[1848.78-1853.18] if they already have maybe a pending route, they should probably not be eligible either.
+[1854.38-1858.86] Because then if we want to put another pending route behind the next pending route,
+[1858.86-1865.42] if that makes sense. So just that'd be too much. That's where I think, yeah, we should exclude
+[1865.42-1869.82] in that scenario, allowing us to assign it to a driver that's already got another pending route.
+[1870.38-1873.66] And if that's the case and we don't have any other drivers, then we just break it all back
+[1873.66-1881.02] down and put it all back in the ready cue. I'm adding this also as a requirement in this
+[1881.02-1887.02] like scenario three here. In the reassigned route, exclude drivers if they have a pending route.
+[1889.74-1895.90] And since these have depart buys, we can show them next to driver ETA and also be like, hey,
+[1895.90-1901.18] depart buy is actually sooner than the recommended depart time is sooner than the driver would be
+[1901.18-1908.96] here. So you're risking missing a cylinder or something. Yeah, but for that, we are going
+[1908.96-1914.80] for the part parted out, right? Maybe. Yeah. And that scenario. Yeah. Yeah. Because I think
+[1914.80-1920.56] as part of this, maybe not in the initial pilot, but once we get to the 3PL stuff,
+[1920.56-1924.64] that's going to be a huge deal is to be able to make those decisions on the fly and not having
+[1924.64-1932.48] to do them manually. Okay. Okay. We spent half an hour on this one requirement. Any other questions
+[1932.48-1937.36] guys? I want to move on from this. Chuck, are all these scenarios good to see you? Yeah.
+[1940.24-1946.64] So in this one, there's one last question, Chuck, you see this active drivers and everything,
+[1946.64-1952.56] right? Do you want to make those UX collapsible? Because it's on the, at some point, we want to
+[1952.56-1956.72] minimize them and they can maximize it. Like a collapsible expand kind of thing. That was the
+[1956.72-1962.72] last question on this. Well, just one curiosity really quick, because I don't remember what version
+[1962.72-1969.36] we've landed on, but I thought we were doing one that had like a routes tab with like two buttons
+[1969.36-1975.04] on it. One was pending and one was in progress or something. And that's how you flip between the two.
+[1975.04-1980.24] But is it now you just click the online button and that's no, no, that active and pending is still
+[1980.24-1985.84] there, but just see if your entire map is hidden, right? Do you want them to be collapsible? Those
+[1985.92-1993.68] entire windows, that's it. Oh, so yeah. If you're saying if you collapse the map, yeah, yeah.
+[1996.56-2004.96] The routes window will disappear, right? Is there any scenario where you want, you have your map,
+[2004.96-2010.72] but you have this route window collapse, the route, the entire window itself collapses. No,
+[2010.72-2017.36] yes. I would say today, no. Okay, I will make that change, but just keep it simple. Yeah. Yes,
+[2017.36-2020.48] thank you. Okay. I assume we can move on to the next question.
+[2029.17-2038.99] This one, Chuck, that we talked about, find it there. This guy, is this needed for
+[2039.39-2051.76] a pilot? Where'd it go? Because it's big. Well, I think some rules around
+[2056.50-2062.18] reassigning somebody should be in place, meaning like what we just talked about, right? Like
+[2064.90-2071.62] if Kira is available, but Kira also has another route that's queued up behind her
+[2072.42-2076.02] like, how do we prevent that? Well, she wouldn't be available then, right?
+[2077.22-2081.70] Well, that was, if she's got a route assigned to her, she's not available. Well,
+[2081.70-2085.22] maybe I misunderstood you because you were saying, I thought you said it was kind of a big deal.
+[2087.06-2092.90] I'm going to go with a different one we're talking about, Anusha. So wait, one second. Kira
+[2092.90-2099.62] is available, so she can be added. Let's say Billy is on a pending route, right? We're
+[2099.62-2107.14] thinking we'll just, we'll show Billy, but disable it. Does that work? Well, because there's this,
+[2107.14-2111.38] there's the scenario where he's on a pending route, but we want to still assign it to him, right?
+[2113.06-2117.46] Because he doesn't have any other routes, maybe potentially assign them. So maybe in that scenario,
+[2118.34-2122.26] he's still green, right? Or maybe he's amber, I don't know, but there's,
+[2123.06-2127.86] Billy is still green. A red to me would be, they are just not available at all.
+[2128.82-2135.06] And we just kind of said that they're not available because they already have
+[2136.82-2140.90] another pending route queued up to go. So we don't want to give them this pending route
+[2140.90-2148.74] because we don't know what else is in there. So basically what you're trying to tell
+[2149.06-2160.02] check is, Billy is on his way back to the store, or he's on his first route. So second route,
+[2160.02-2165.54] we should show green. But if there is, like we need to understand how many max routes we can
+[2165.54-2173.14] queue up for a driver, right? Yeah, I would say just one for now. Yeah. One plus one, right? One
+[2173.22-2179.94] is the current route and plus one is in the, okay. Okay. For now, I think that's, and then, so whether
+[2179.94-2186.34] it's they get displayed red or maybe they don't get displayed at all, and maybe that's it as well. But
+[2187.14-2191.30] the only, like I said, if, Madison, the way you kind of led with that, maybe I misunderstood,
+[2191.30-2198.42] you said it was kind of a big deal. I'm talking about the wrong one. Okay. Yeah. So, but I do
+[2198.42-2202.42] think we need to figure out what this, what this looks like visually based on the couple scenarios
+[2202.42-2206.50] we've just covered, right? One of them is the driver's available right now, not on a pending
+[2206.50-2211.22] route, ready to go, doesn't have anything queued up. We can assign it to them. They're definitely
+[2211.22-2217.94] green. There's the scenario of they're on a route, but they don't have anything else pending behind
+[2217.94-2223.06] them. So they, they should also, they're also eligible for lack of better terms. I mean,
+[2223.06-2229.62] yeah, I would say they're probably just green as well. Yeah. And, and then maybe there's also
+[2229.70-2233.78] a note and this could be asking too much, but there could be a note that says like currently
+[2233.78-2240.82] on a route, but whatever that means. And then there's maybe the red ones are the ones that
+[2240.82-2244.50] right. We already said like they can't be assigned to because one, they're either
+[2244.50-2248.42] not signed in or two, maybe they're just not eligible because they already have another
+[2248.42-2254.58] pending route. But I'm also curious, like the more drivers we have, do we even care about
+[2254.58-2260.18] showing drivers that are not even eligible at all? And yeah, so we can keep that list
+[2260.18-2263.86] pretty short, right? To where we only have the two or three or four or whatever it is,
+[2263.86-2269.54] drivers at a time, instead of the 20 or 30 that have come and gone since we've, you know,
+[2270.66-2274.42] yeah, rolled out pro tracker. So this is my food for thought.
+[2275.30-2281.54] Okay. So I'm just trying to finalize this. We're saying if green is green, that will,
+[2281.54-2287.46] they're not on any road, we'll show green. I'm not changing that, right? You want another
+[2287.46-2293.86] thing saying Amber, where you want to show the driver isn't pending or you just want to say
+[2293.86-2300.42] Billy dash already has a pending route kind of thing. Some something. Yeah. Or just, or yeah,
+[2300.42-2304.50] or whatever, maybe whatever is easiest, whatever his current status is or something in route,
+[2304.50-2309.46] or I don't know, but yeah, something, but something to let him know that like he's
+[2309.46-2315.14] available, but he's on a route right now. Okay. Okay. We can do that. And whatever the color
+[2315.14-2318.90] matches, I'm not saying they have to be Amber. I'm just throwing it back out there. It could be,
+[2318.90-2325.78] honestly, it's really green and just maybe slightly delayed. Okay. Yeah. We can show that
+[2325.78-2332.74] not a big deal. Yeah. Okay. My other problem is that none today in production, we show that none.
+[2332.74-2339.86] I think should we, we can, again, we were saying optimum, we can never assign none, right? Like,
+[2341.14-2346.82] Oh, it could be that like a driver is trying to log in or about to come in five minutes and
+[2346.82-2352.02] they're going to be assigned it to them later. So if they're choosing it to put it in a limbo,
+[2352.02-2355.46] then it's up to them, right? It becomes an ad opera out with no driver.
+[2356.34-2363.62] Do we want that? That's the question, right? So let, yeah, I mean, none will never be selected
+[2363.62-2369.14] by the optimizer. So we are good there, right? It's only an ad hoc route. So dispatcher must
+[2369.14-2375.14] should be like, like it knows what he's doing is my assumption too, but yeah.
+[2376.82-2382.26] Yeah. So like if they said none, which I don't, which, so they said none that it would just
+[2382.98-2390.10] now be an, an open route, basically that's not assigned to anybody. Correct. And then how do
+[2390.10-2394.74] would you, I mean, I don't, maybe it's too far too fast, but like, that's what kind of makes me
+[2394.74-2398.58] nervous. What if we don't want that empty shell, that I say empty shell, but what if we don't
+[2398.58-2405.06] want this, this unassigned route, right? Just sitting there and what if I want to break it
+[2405.06-2410.90] back down again? Yeah, no, that's totally fine. So the earlier feedback we got, right. And you
+[2410.90-2416.66] might remember a little bit of this. See, you have like five stops in the route, right? Every time,
+[2416.66-2421.70] if there is no driver available, they just can't leave it in, they want to leave it in limbo and
+[2421.70-2425.94] assign it when they have a driver available, right? If you're canceling the route, they have
+[2425.94-2431.86] to build it all again from scratch. Think if that's another scenario too, right? We don't have
+[2431.86-2436.82] any other like that. That's why it's okay if we want to remove none, but just, we should think
+[2436.82-2441.94] through the feedback that we got in the initial phases of Protractor. If it's still invalid,
+[2441.94-2450.58] we can remove none. Yeah, I just think after, so we now have this route.
+[2452.34-2457.30] We're, yeah, I don't know. It just feels like it kind of goes, I wouldn't say against the
+[2457.30-2465.86] automation, but it's just like, we're potentially moving this route to nobody. And now this
+[2465.86-2470.26] route is just kind of in staging. And then you've got like potentially people marking things ready
+[2470.26-2477.86] for to go. And then that route is not part of the optimizer anymore. So it's just missed
+[2477.86-2483.06] opportunities. So we can have metrics around it, right? And then see how much they're abusing it
+[2483.06-2488.18] and then decide to remove it later. But any functionality we are going to remove, right?
+[2488.18-2493.14] It's going to be a bigger change into the flow. So we should keep it kind of consistent with
+[2493.14-2498.74] what it's been for now. So I guess just wanted to Dan, the none would be this,
+[2498.74-2504.34] and I just want to make sure I fully understand the flow. We're whatever, we've created another
+[2504.34-2509.62] route for another driver. Now we're trying to figure out, okay, I have this other route
+[2509.62-2515.70] that I want to assign to a different driver now. And these are my ones that are available.
+[2515.70-2522.34] And if I say none, and I save that or whatever, it just now becomes an open route. It's not
+[2522.34-2529.30] assigned to anybody to hopefully just get dispatched to another driver in the near future
+[2529.30-2534.26] once I have another driver. Correct. If they hate rebuilding all the five stops again,
+[2534.26-2539.62] if that makes sense, you know? Yeah. And a lot of which who knows? Yeah. I mean, I guess we can
+[2539.62-2544.26] just kind of go from there. The thing that I was thinking of is a lot of times if we're
+[2544.26-2548.18] busting down a route for some reason, it's probably not going to get rebuilt the exact
+[2548.18-2554.10] same way anymore. Maybe like, you know, because now I've got whatever one route that was going to go,
+[2554.66-2560.34] you know, a longer loop is now two routes going two different directions or, you know, the stuff
+[2560.34-2565.38] we can wait to send on another later route, but get this, these two things are the most important.
+[2565.38-2569.62] So send these now. So there's scenarios like that where like I said, when they break down a route,
+[2569.62-2574.26] I'm sorry, when they, yeah, the route itself would just be broken down and maybe reconverted
+[2574.34-2580.02] into something else. Okay. But, but I, yeah, I just think it's going to be important if we're
+[2581.22-2583.86] saying none, I just need to make sure that our stores know how to,
+[2584.74-2589.78] you know, we already have that. Yeah. And I guess, and I'm sorry, before we move on,
+[2589.78-2596.58] I just, so like, but, but if we say none, then I have no way, do I have a way to still
+[2596.58-2601.78] cancel that route completely? You can always come back to the view details,
+[2601.78-2606.50] click this cancel route. None is just, you're putting it in limbo because I don't want to
+[2606.50-2611.14] rebuild the route because if it's a custom stop, you're searching a route, you're searching for an
+[2611.14-2617.30] address and building a custom stop and all that. Right. And that, that you don't want to cancel
+[2617.30-2621.86] all of that. You can, you always have the ability to cancel this entire route, reorder,
+[2621.86-2629.62] remove all those abilities are still there. When you see, we need to think slightly
+[2629.62-2636.02] differently from what we did before, right? When you say cancel route, what's happening
+[2636.02-2645.04] in the background? We, everything will be, will go back to the invoice list. All the invoices in here.
+[2645.92-2655.52] So even if we miss the ship on time. Yeah. Yeah. So there has to be a warning, isn't it?
+[2655.52-2659.84] No. Yeah. I mean, dispatcher is making a conscious decision.
+[2659.84-2667.12] That is for check. Yeah. There's some, yeah, if they are canceling the route. Yeah. And if there are
+[2667.12-2675.36] like, say for example, out of five orders, four orders are missing the, if you cancel this route,
+[2675.36-2680.56] then should there, shouldn't there be a warning for dispatcher, blindly canceling it?
+[2682.56-2686.48] I mean, I don't disagree that it would be nice to say like, Hey, if you cancel this, you know,
+[2686.56-2693.12] these are going to be potentially late. The one, the fallback is when the invoices go back into the
+[2693.76-2701.04] ready queue or the unassigned queue, they'll still be mapped with the red or the amber color coding
+[2702.24-2706.56] to let them know that like you're really getting close to your SLA. You need to, you know,
+[2706.56-2710.16] these are still hot potatoes that you got to figure something out on. So that was kind of our
+[2710.16-2720.40] interim notification per se was just to kind of leverage the SLA colors as they were to kind of
+[2720.40-2726.40] breach, not SLA, like customer SLA, but getting it marked ready to go at us by a certain time to get
+[2726.40-2732.56] out the door was kind of how, because like I said, when you're, when you're canceling it,
+[2732.56-2737.60] something has gone wrong, right? And, and yeah, so it's like, that's when we start to make the
+[2737.60-2742.56] decisions on, well, I got to send these to now. The rest can, can, I can wait to figure out what's
+[2742.56-2748.48] going on. But so a lot of times when they're canceling these things down, they may not be
+[2748.48-2761.70] rebuilding the entire route. They're just rebuilding a portion of it. Okay. So you're
+[2761.70-2768.18] saying we can displace a warning if you want, but we're also showing the color coding in the
+[2768.18-2775.14] invoice list. So they know that it's, it's at risk. Yeah, it's at risk and past risk. And I mean,
+[2775.14-2779.78] that's, yeah, but I think again, one of the things we need to understand is like, what's the
+[2779.78-2784.98] cancellation rate, right? So if we've got stores that are having high cancellation rates or even
+[2784.98-2789.06] during pilot, right? We need to figure out why are the cancellation rates so high it's
+[2790.82-2794.26] versus, is it just a, you know, a one-off scenario where they're canceling, canceling it
+[2794.26-2799.78] every now and then. Okay. We need metrics on cancellation scenarios. Okay. We don't have any
+[2799.78-2806.70] to do. Yeah. If anything, just, you know, whatever cancellation ratio, right? To route to cancellation
+[2806.70-2814.22] ratio or something like that. Yeah. Okay. Speaking, speaking of metrics, I'm reporting
+[2814.78-2819.74] the, the auto void. Remember when we are now going to be getting the update on the invoice
+[2819.82-2824.94] seed of invoices that have been voided in TAM will now get updated to us.
+[2827.50-2833.66] And you do want us to release it when available. We don't need reporting on that, right? That's
+[2833.66-2837.90] always said, we're going to notify the MDs of the report improvement. It'll be more reflective
+[2837.90-2843.98] because they can, the, the remove will only be used for when it's like pickup in store instead,
+[2843.98-2849.34] or if there's like an error of some sort. But they won't have to remove the invoices
+[2849.34-2854.70] that have been feeded that the invoices that have been voided through the invoice feed.
+[2854.70-2860.54] They won't have to remove this from protractor anymore. We don't need to, so they're going to
+[2860.54-2866.30] have a new status of, instead of removed in our system, they will have avoided. We don't need to
+[2866.30-2873.50] have BQ track those, right? Because they can look at that in TAMs. I mean, they could look at it
+[2873.50-2882.46] in TAMs. But is it a big deal to send the, this voided status down to BQ as well? I mean,
+[2882.46-2887.26] it just might. It's not. It's just that changes on the Alicia's team, right? If they want to
+[2887.26-2891.66] show it on the report, that's it. Yeah, I would say please just go ahead and send it. And then
+[2891.66-2898.22] if we want to augment the reports, it's already there in GBQ. Yeah, we send everything to GBQ
+[2898.22-2904.86] track. Not a big deal, right? The only thing is what is being consumed for viewing in the
+[2904.86-2908.54] Power BI report. But yeah, we are doing that. To Madison's point though, when we talked about
+[2908.54-2914.86] it yesterday, I do think there will be a slight improvement on the manually removed stuff
+[2914.86-2919.18] because now they're not having to manually remove it from protractor. If they void it in
+[2919.18-2924.38] TAMs, it will just be done automatically. Correct. But the state never happened. Correct.
+[2924.38-2927.66] But the status will be voided. It won't be removed anymore. I want to be
+[2927.66-2932.78] very clear. Remove is someone in dispatcher is going and manually marking it removed.
+[2932.78-2937.10] What I did was automatically from TAMs. So we'll have two different statuses on it. Yeah. Okay.
+[2937.10-2940.54] Sure. But yeah, if we go, okay. But it is a two different statuses
+[2942.06-2944.86] or two different values for the same whatever.
+[2946.62-2951.42] They mean their actions, treated actions, but they will be different just to make sure
+[2951.42-2955.02] we know which one it is automatically done and which one is done by the user.
+[2955.74-2960.14] Yeah. And right now they're grouped under one.
+[2960.86-2964.54] Sorry, go ahead. You're good. I was saying right now they're grouped under one. Right now,
+[2964.54-2972.22] they're both showing up on the report that is Mark has delivered and removed. We have that report.
+[2972.22-2979.66] Right now, the removed is for the pickup store instead and for it's been voided in TAMs,
+[2979.66-2983.74] so I need to remove it from protractor. They are grouped under one right now. They will be
+[2983.74-2994.46] separate types very soon. Okay. You need to note that down if it is not noted.
+[2995.66-2999.50] There is already a report card on the invoice intake this thing provided.
+[3001.58-3009.42] The report, we are talking about what report. There is a on manually delivered removed
+[3009.42-3015.34] report in production today, the embedded report. Is it part of BI? Yes.
+[3016.94-3023.02] Yeah. So we need to let Alicia see, we can't make any changes. It's a dependency on them.
+[3024.14-3029.66] Yeah. If there is a dependency, we call it down. We have to make changes. We let them know what's
+[3029.66-3035.18] the logical change around it. Right. They here, if you see, right, they just need to show an
+[3035.18-3041.74] additional status if that's needed. Yeah. Because right now, all it will mean, I mean,
+[3041.74-3049.10] I think we should show, right? Because that seems, yeah. Well, so because it's like the invoice never
+[3050.70-3056.78] like it's going to, it's what's happening right now. As you can see, this is the small fracture.
+[3056.78-3065.74] It's only, it's only 8% of the total of this report, right? Or I guess 8% of all orders. But
+[3067.66-3073.58] what's happening right now is if the invoice gets voided in TAMs, we don't get that update. And so
+[3073.58-3080.06] they have to remove them from ProTracker. And so all that will be changing here is anything that's
+[3080.14-3087.26] been voided won't show up right now because it's not going to be a removed status anymore.
+[3087.26-3094.46] We can add voided on here, but they can see those that count in TAMs too. So we don't have to.
+[3095.66-3099.66] It's kind of up to Chuck if he wants it added here or not. And if he does,
+[3099.66-3105.34] then it'll be a change needed on BQT. Yeah, I don't necessarily care here.
+[3106.14-3109.58] I care more about, this is more of the exceptions, right? So these are like,
+[3110.30-3115.10] we're manually removing it for some reason. We're manually marking and deliver for some reason.
+[3115.10-3120.22] The ones that were voided out of TAMs, I don't care per se because they were voided for a reason,
+[3120.22-3126.30] right? Yeah, so it's a customer canceled. It's going to be a 20, almost 21% improvement
+[3126.94-3134.86] of the removed orders. Interestingly. So one thing that you have,
+[3135.34-3142.54] I wanted to ask you is sometimes when the store cancels the invoices, that's when it voids here.
+[3143.10-3149.18] But if it is already in flight, we are not going to do anything about it because already the route
+[3149.18-3157.34] is, you know, departed and it's in flight, right? So do you want to see how many of those were
+[3157.34-3165.42] delivered, like metrics somewhere? If not here. Yeah, I don't know. I'm trying to think of what,
+[3165.42-3176.94] so like a delivered voided invoice report. I mean, maybe in the future, but I don't think
+[3176.94-3180.46] I'm thinking of what that would tell us other than we've got a store that was really operating
+[3180.46-3186.54] backwards. But yeah, maybe in the future, Bonnie, and I think it's something maybe we can even
+[3186.54-3196.54] look at. As long as it goes to GBQ, we should be able to see, yeah, what ones were voided versus
+[3196.54-3201.02] what ones we have flagged as actually delivered and then try to figure out, yeah, go work our way
+[3201.02-3209.52] backwards from there. Okay. I made that note down. We will be sending it. So not a big deal. Yeah.
+[3210.24-3219.68] Yeah. So, Madison, for each of the FRs in this document, right, can you go over with Chuck and
+[3219.68-3226.16] see which one is pilot only, which is gender credence for each of the FRs? Because see,
+[3227.04-3232.96] the things like this green icons, red icons, all of them, right, like why did also Chuck said,
+[3232.96-3237.60] it's better to go before auto dispatch itself, right? So we need answers on that.
+[3237.60-3243.28] I don't want to take up this entire meeting just for that. If you can go over that,
+[3243.28-3252.08] that will be helpful. Yeah, absolutely. I think we only have two more. We have so many more
+[3252.08-3256.32] questions. Can I set up another meeting from three to four? Yeah. Well, yeah. And I don't
+[3256.32-3262.08] necessarily need to be anywhere right this minute. So if you wanted to... Okay, perfect. Yeah. I'm
+[3262.08-3267.92] good on time. Okay. I will still be here, but I need to bring my computer. My kid's still
+[3267.92-3274.96] homesick. She was so close. And then last night, she goes, hey, mom, will you check my temperature?
+[3274.96-3279.92] And I was like, oh God, do you need me to check the temperature? She's like, no, it feels so good.
+[3281.76-3288.48] She had 101. She was clear all day, all day clear. And then last evening, like at dinner,
+[3289.20-3294.96] back to 101. So she's home again. But I do need to feed her lunch. So I can... Anyway, all I've said.
+[3296.72-3303.20] Okay. Let me do these last two from our chat yesterday. And then you can take over and I
+[3303.20-3314.64] will listen in. The picking status. The codes X and O are for transfer, correct? Is one of these
+[3314.64-3322.64] codes a picking status? Is that why Jason has it on the designs here? No. No. Like, yeah.
+[3324.48-3331.12] Yeah. The only code I think you guys are probably get typically is that O code. You might get a
+[3331.12-3337.04] combination of some of those others, but the O means that it was ordered via Nap Express. The X
+[3337.04-3341.28] means that it needs to be ordered by Nap Express. And we're typically not finalizing invoices before
+[3341.36-3347.84] we order. But no, it won't have anything to do with picked. That's going to be... That's the flag,
+[3347.84-3353.44] though, that'll tell you that it was a transfer invoice. So if you receive... I'm assuming the O,
+[3353.44-3356.48] you may want to double check me on that. But if you... And I think that's how you're looking
+[3356.48-3364.00] at it today. If you receive that O code, we'll assume it was ordered via Nap. You might get
+[3364.00-3370.32] some X's. And honestly, that's a good question. Should we even... Should we have... Well, it
+[3370.32-3374.40] won't matter here in the near future. But I'd be curious if we're auto holding X's,
+[3375.60-3381.28] because technically an X means it has not even been ordered yet. And then you can't, because
+[3381.28-3386.88] actually you can't source... This is a little sidebar for you guys, but you can't source via
+[3386.88-3391.60] express. This only kind of makes sense. You can't source via express parts on an invoice
+[3391.60-3396.64] after an invoice has been finalized. Therefore, you would have to create a new invoice,
+[3396.64-3401.76] basically. And now you don't have the association from the sales order to the NXP order, and it
+[3401.76-3407.36] would create a lot of problems. So typically, you should not see any with an X. You might be...
+[3407.36-3410.88] Those are conversations for another day, but you should be seeing O's for the most part.
+[3411.68-3420.80] But those X's or O's, let's call it, should be seen in... Should show as a transfer status.
+[3420.80-3425.84] And I don't think there's anything that'll tell you today that something is in a picking status.
+[3425.84-3433.52] Okay, so what we said here... Sorry, yeah. Sorry. Yeah, invoice, new to Protractor,
+[3433.52-3438.80] no action, routing. Ready to go. It's been clicked and it's waiting for the dispatcher's
+[3438.80-3445.52] thing. Yep, transfer means it's transferred in, goes on auto hold. It doesn't go on auto hold
+[3445.52-3452.72] anymore for the phase one. But when the parts have arrived, it would be equals parts being
+[3452.72-3459.92] picks with dispatcher. Yeah, so same thing. If we mark a transfer, it is displayed as transfer
+[3459.92-3464.32] upfront. I think as far as you guys care on the back end, it's just invoiced, right? But we're
+[3464.32-3470.88] visually... Okay, it's only a transfer on the front end. Yes, that makes sense. That makes sense. Yeah,
+[3470.88-3475.60] totally just a cube to the store that this invoice has got parts being transferred in.
+[3476.24-3481.60] Yeah, okay. Chuck, one quick question and just that transfer, right? If we have five line items
+[3482.32-3489.44] in the invoice, okay, only one of them is ORX. ORX, right? It should still be transferred.
+[3490.24-3496.24] Yeah, all five of them. Yep, one or many. One or many. One or any, really.
+[3497.68-3504.16] Are being... That code is considered to transfer. The only thing that is a little bit of a...
+[3505.04-3510.64] Maybe we'll just talk about it really fast is, so there will be a chance... Just like there's
+[3510.64-3515.36] a chance with any of this stuff, there will be a chance that they're going to flag it ready to go
+[3515.36-3520.48] and they don't have all the stuff yet. Could be one of two things. Maybe they're planning to
+[3520.48-3526.48] deliver what they do have now and the rest later and that's that whole creating a custom stop to
+[3526.48-3533.76] deliver the rest. Because you guys really aren't inventory aware today, we should still be able
+[3533.76-3541.60] to mark that transfer ready to go if we have some or all of the stuff being sourced,
+[3541.60-3546.00] at least for phase one. I think we could be better about it in the future, but does that make sense?
+[3548.80-3553.44] We would treat it. It's just a visual cue is really all it is to the dispatcher that that
+[3553.44-3561.04] invoice has some parts to be sourced on it. I think we could be better about letting them know
+[3561.04-3568.00] what all that is in the future, but yeah, that's just a visual cue. But it would be treated the
+[3568.00-3574.56] exact same way if we click that invoice and we click ready to go. The exact same thing would
+[3574.56-3579.60] happen as if it was marked as invoiced and there was a chance, which I'll just finish my thought
+[3579.60-3586.88] here, there's a chance that an invoiced part isn't necessarily in stock either. Maybe we
+[3586.88-3591.92] ordered it via Joey or something outside of NXP. So we won't really know that very well. It's going
+[3591.92-3597.68] to be a lot tougher to cover that scenario. So the Joey stuff, where we don't have these
+[3597.68-3604.96] special codes, they're just going to say invoiced today, like they already would have.
+[3607.52-3610.24] As we transfer away from Joey and stuff, I think it'll just be
+[3610.88-3614.32] a natural transition that everything will just start to say transfer, hopefully.
+[3615.12-3622.32] Okay. So I'll make those changes as a new functional requirement, the transfer one.
+[3622.32-3626.96] Are there any other statuses like this? Picking we're going to remove. So I'm not worried about that.
+[3627.76-3632.56] What is available here? Sorry, go ahead. I don't know where available is.
+[3633.28-3636.72] I have it in here, so I'm going to remove it if that's not a thing.
+[3637.52-3642.64] I'm going to just remove it.
+[3644.80-3649.60] Yeah, as of yesterday, I think those are the main ones. We talked about,
+[3649.60-3656.64] and I'm just saying it out loud, we talked about maybe having a notification for parts
+[3656.64-3661.76] that had already been through the unassigned queue once, and then we're back in the unassigned queue.
+[3662.72-3670.24] But I think honestly just relying on the color coding based on the time to have ready by time
+[3670.24-3674.24] or whatever, I still think that's going to be okay for the first go around.
+[3675.36-3680.88] If something does go back in the queue, it'll still say invoiced, but it'll just be color coded
+[3680.88-3686.16] as we get potentially are a lot closer to the SLA where it has to be marked ready by
+[3686.16-3692.56] or passed it by then. Okay, I'll just add for now for the first phase one,
+[3692.56-3697.44] I'll just add metrics when they go back to the queue. Okay, we can go from there on how
+[3697.44-3709.63] you want to show the notifications and stuff. Okay. Okay, so last one I had
+[3709.63-3722.59] is we were talking yesterday, Chuck, make sure they're... Okay, so when a driver moves invoices
+[3722.59-3727.63] slash stop from the mobile, make sure they're added back into the unassigned invoice list.
+[3727.63-3732.59] It's a dispatcher tries to market ready to go, have an alert that this was removed from a previous
+[3732.59-3737.47] route, can you have, confirm you have parts slash driver is returned or whatever that wording
+[3737.47-3741.79] that we said, but we do not maintain this is the one that was the big one. We do not maintain
+[3741.79-3749.95] this history today. If this is needed for phase one, it'll be large. I mean, so what we could do is
+[3751.95-3757.55] we should maintain a route history table where routes cancel everything exists,
+[3758.11-3763.55] is what we're saying, right? Yeah, Chuck, is this needed for phase one?
+[3763.55-3771.87] If it's needed, we'll try to solution it today. Can they access proof of...
+[3773.71-3780.91] No. All right, so this came up when you mentioned yesterday in our chat about
+[3782.43-3788.51] if a driver, an MDT, a driver could just skip a route. And I pointed out that they can remove
+[3788.59-3794.03] an invoice and a stop entirely. And those invoices do go back to the unassigned invoice list.
+[3794.03-3797.79] You are saying that once it's back in the unassigned invoice list,
+[3799.15-3804.67] we should, if they try to market ready to go again, or if it just automatically does,
+[3804.67-3809.15] but like there should be an alert of some sort that this was removed from a previous route,
+[3809.79-3813.95] confirm you have the parts slash the driver is returned or whatever, because it could be like,
+[3813.95-3819.63] that's the only... That is the only one of that part in inventory or something like that, right?
+[3821.55-3829.23] But in order to do that, we would need to maintain that history. And this isn't not a small one.
+[3829.79-3836.03] I see. Well, okay, so this came up from... Yeah, Jason and I kind of had this discussion where
+[3836.03-3840.99] I remember now it was like, well, how do... Yeah, the driver skipped a stop and then whatever,
+[3840.99-3846.59] remove the stop. And it came back into ProTracker and then we got a dispatcher potentially trying
+[3846.59-3853.39] to market ready again. I think for the first go around, I mean, the fail state is just going to be
+[3854.91-3857.79] right. We're going to let them know, like, if you're marking something ready to go,
+[3857.79-3861.55] you better have it in your hands. And if you don't, you need to figure out where it is before
+[3861.55-3867.95] you can mark it ready to go, because the optimizer is just going to do its job. So yeah,
+[3867.95-3873.95] I think for now, for the first go in that type of scenario, no message really is needed,
+[3873.95-3878.51] but we'll just need to make sure that they're clear. It's not going to wait for that driver
+[3878.51-3883.39] to come back with the stuff that got taken off that route. You're going to need to physically
+[3883.39-3891.33] have it before you try to tell ProTracker it's ready to go again. Okay. Okay. Excuse me.
+[3892.37-3898.13] All right. And then, yeah, this last one is you and I need to go through and see how we can
+[3898.61-3906.85] iteratively deliver all of this redesign stuff and go through the functional to confirm.
+[3907.57-3914.69] Yeah. So Madison and Sharp, the entire route builder is changing now, right? So which ones are
+[3914.69-3919.09] for, I know the ready button is for phase one that I'm not going to ask, but there are things
+[3919.09-3925.81] like this SLA viewing or like things like other things that can go without auto dispatch, right?
+[3925.81-3932.21] So we need to discuss clearly identify which one is for pilot, which one is for,
+[3933.01-3937.89] can go outside of the route optimization algorithm pilot, like probably in the next few
+[3938.53-3942.21] next month or so things like that is basically we need to identify.
+[3942.77-3947.09] Okay. Yeah. Because I mean, look, this compared to this is a very different view.
+[3948.93-3954.29] Yeah. Yeah. I mean, if we can figure it out, but if possible, yeah, I mean,
+[3954.29-3959.65] the more we can start to deliver incrementally, the better. And yeah, I mean, if we're able to start to
+[3959.65-3967.73] do the routes, little routes tab up there and have the map open and toggle on the map and stuff
+[3967.73-3972.53] like that, I think those will be, I know that that route, we talked about it with some of the
+[3973.65-3977.97] stores we just talked to a few weeks ago, but that routes window up there is going to,
+[3977.97-3981.81] I think be pretty well received. Yeah, absolutely. Yeah.
+[3981.81-3988.53] The only thing is I'm if like, currently, they do need to look at unassigned invoices, right?
+[3988.53-3993.57] So if you always keep it open, that's going to take like half their real estate of working with
+[3993.57-4000.21] the noises and could be annoying, potentially. So we're going to keep the show map, hide map.
+[4001.17-4006.69] Yeah, but like, it's just like on every leaf edge or refresh of the page, they will just
+[4007.49-4009.81] have to see this unless they don't refresh that often.
+[4012.13-4017.41] Yeah, and I guess the only thing that maybe does get maybe a little bit to that point is the routes
+[4017.41-4025.41] itself. Yeah, I just, yeah, so we had to balance, we'll make sure that all excited to get out things
+[4025.41-4030.37] iteratively, that it doesn't create too much of a disruption. And then it actually, yeah, it
+[4030.37-4036.37] delivers value instead of whatever more steps or like, hey, well, in six more months is, you know,
+[4036.37-4039.73] I'm just saying like, oh, in another few months, we're going to have these features out, which is
+[4039.73-4044.13] going to make it on. So avoid some of that. But there's a balancing act, but I 100% agree.
+[4044.85-4049.89] Things we can get out, potentially, iteratively, there'll be some some wins there for sure.
+[4051.09-4052.69] Be able to start to show some improvement now.
+[4054.53-4061.97] Okay, so yeah, so when you and I meet back up, we can do a quick run through and I'll send you
+[4061.97-4067.09] this link. That we talked about this yesterday, too. There was all these outstanding questions for
+[4067.09-4078.05] Jason. And that you're entitled to come to, but we need to go through and answer these. And Bonnie,
+[4078.05-4085.25] and we also if she's still here, she's not, okay, need to figure out who is going to get
+[4086.37-4090.21] Figma? Are we going to get a UX designer? Or are we going to get Figma versions?
+[4090.85-4095.81] As we need to finalize this huge blocker guys, a huge blocker.
+[4097.25-4104.37] I told them I could do design. Yeah. Yeah, I could because I used Figma in the past
+[4105.49-4110.85] to design a few things on ProTracker. And it's like gotten really easy for Figmaic. I think
+[4111.17-4124.16] the designers have Figmaic like AI access. Okay. This afternoon's fairly well-booked up. But
+[4125.92-4131.04] tomorrow before lunch, I'm fairly wide open. So I've got some things. But
+[4131.68-4135.20] so tomorrow, Madison's up to you. If you want earlier in the day, I'm happy to
+[4136.56-4141.12] we can run through all those maybe to prepare for I don't know if we have another follow on
+[4141.12-4149.36] Friday or not. I don't see one actually. But anyways, yes. Tomorrow morning, anytime really
+[4149.36-4157.52] tomorrow morning, once you're ready, I can be available for a while. Oh, we will make it work.
+[4157.52-4166.08] Oh, no. Aren't we going to be in the store tomorrow? Yep. But the deployment tonight.
+[4167.84-4170.24] Yeah, I'm assuming that's all everything's good with that.
+[4171.20-4176.00] Yeah, I need to send out an email to Stratix, but that's only for the two pilot stores.
+[4176.00-4179.76] Can I sign? I need to call them. I'm going to do that.
+[4182.32-4188.08] Okay, I did that yesterday. Yeah, I will. Yeah, I thought maybe that but either way,
+[4188.08-4192.32] maybe tomorrow afternoon, we can find some time just this afternoon. I got kind of meetings back
+[4192.32-4199.04] the rest of the day. So afternoon may be easier tomorrow then. Okay, that's good.
+[4200.00-4205.84] Madison and Chuck, right? Every FR that's confirmed, confirm and you've answered,
+[4205.84-4210.72] can you just Chuck, go in and say confirmed or something like that? I don't know. Because this
+[4210.72-4217.36] is a huge document. It's very difficult to find the entire page. I know we can talk through it,
+[4217.36-4221.12] but I just wanted to see how because at least we can start creating cards for the ones that
+[4221.12-4225.76] are confirmed, if that makes sense. Yeah, looking for work right now.
+[4225.92-4230.72] Yeah, and can somebody I'm sure it's somewhere, but can somebody just put the most recent link
+[4230.72-4239.76] in this chat? Yeah, it's always. Yeah, I'm gonna put it right here. But if you see all the
+[4239.76-4244.64] functional requirements, right, I put a dash confirm. If it's confirmed and all the questions
+[4244.64-4249.44] are answered, if you can just say, yes, this is confirmed by me or something, I can start
+[4249.44-4253.92] creating cards. I know there are no UX designs and we'll get to that. But at least the
+[4254.48-4258.96] back end, we can start working on it. Because he's looking for cards to work on.
+[4262.48-4266.64] I stopped sharing and I knew if you want to take over, I can still listen in and I'm
+[4266.64-4271.44] going to mute myself for now, but I will unmute if you needed you. Just one, Chuck,
+[4271.44-4276.16] let's go through this one more thing if you still have time. Yeah, I'm fine. Okay,
+[4276.16-4280.80] so based on store hours and a buffer time, don't run the optimizer. We said ProLink has
+[4280.88-4285.20] 40 minutes and we'll make it configurable on our end. Today, when ProLink,
+[4286.88-4293.04] let's say 6pm, the store is closing. Before 40 minutes, we don't let the optimizer run.
+[4294.24-4301.04] We'll show them a UX notification with a disclaimer that the store is about to close
+[4301.04-4307.68] in all of that, right? No more hold, even. The thing is, can we disable ready button
+[4307.68-4312.96] after the cutoff time, meaning 40 minutes before the. I still think there's going to
+[4312.96-4318.16] be scenarios where they are going to need to make a round. So I didn't. They just can't click
+[4318.16-4324.88] ready. They can do build out however they want, right? Well, but why wouldn't we use the optimizer?
+[4325.76-4330.72] Because the store is closing in. But I would only mark the ones ready that I know I want to
+[4330.72-4335.92] go take, right? Like, I don't know. I don't know if I would say we didn't, we wouldn't
+[4335.92-4341.04] use the optimizer. I would just say. Wait, that's what we said, right? Don't run the optimizer.
+[4341.84-4345.12] We skipped. We just give them. We said that. We just.
+[4345.92-4354.08] Okay. Maybe I misunderstood. But yeah, it should be if we run it after hours or close to the hours,
+[4354.08-4357.92] we're just going to say, hey, you do realize your store is about to close. Do you still
+[4357.92-4363.76] want to do this? And if we say yes, let the optimizer run for the invoices that were selected
+[4363.92-4367.20] or they say, no, that's fine too. And then they could create their customer out.
+[4367.76-4372.72] But I don't necessarily think any reason why we shouldn't let it run. We just need to let the
+[4372.72-4377.76] store know that like, you know, you're about to invoke the optimizer that could, you know,
+[4377.76-4382.00] I don't have any we say it, but is going to create a route that could potentially go past
+[4382.56-4387.60] your store normal hours. Is that okay? But I don't see any reason why we wouldn't or
+[4387.60-4391.76] couldn't use the optimizer. We just need to let them know that you're encroaching into that
+[4391.76-4399.92] final that final hour. So Chuck, if say I'm on my account, I'm placing an order today, right?
+[4400.64-4405.60] My store is closing at six. I'm placing an order at five 30. Would you still give them
+[4405.60-4411.76] the standard delivery options of half an hour, whatever that that is? No, to be honest with you,
+[4411.76-4416.16] I think in that scenario, it's going to say the next morning is going to be the delivery
+[4416.96-4423.68] just because it is close to the but what could happen is the guy, you know, it's your $10,000
+[4423.68-4426.72] a month. I don't care. That's just on the street or something that says like,
+[4426.72-4429.92] look, I know it's 30 minutes, you guys close, but I need it now.
+[4432.64-4436.56] They can do an ad hoc route is what we've discussed, but you don't want to do that anymore.
+[4436.56-4440.00] You're saying like the optimizer. I think they could do either, right? I mean,
+[4440.00-4443.92] they could they can run the like, forget about what time of the day is for a moment, right?
+[4443.92-4451.44] We can run the optimizer or the ad hoc really anytime we want. The only window here was,
+[4451.44-4456.24] well, when we start to get close to the end of the day, we just need to be careful. Like,
+[4457.68-4460.72] you know, we need to let the store know that if you're running this optimizer,
+[4460.72-4465.92] it's going to create a round that may go past your normal closing hours and that's all good.
+[4467.60-4471.92] But it gives us the opportunity. Like maybe it's going to be two invoices and maybe,
+[4472.00-4479.28] right, it's going to tell us, you know, we can use the optimization or whatever to still
+[4479.28-4485.20] create the best route instead of doing it via ad hoc. And so I just, yeah, hopefully that makes
+[4485.20-4489.20] sense. I still think we should do it. We just need to let them know we're close to the closing
+[4489.20-4495.12] hours and are you still okay? Let the optimizer do its thing because we're going to get the
+[4495.12-4502.24] benefit hopefully of it creating into the most optimized fashion. And then, you know,
+[4502.24-4505.28] if they get back late after the store closes, they get back after the store closes, it's okay.
+[4507.12-4511.20] Okay. I don't want to create more reasons why we have to keep falling back to the
+[4513.12-4516.32] ad hoc builder, right? Because then I feel like we're going to have to be undoing a bunch
+[4516.32-4525.44] of other stuff later. So we just. We can add a disclaimer in two scenarios, right? That
+[4526.00-4530.72] where it's so close to store hours and then another, like if there are no drivers available,
+[4531.68-4534.72] we just still want to run the optimizer on these ready invoices.
+[4535.84-4540.96] Yeah. And I think we talked about that too. And I think that's another either disclaimer or
+[4540.96-4546.40] something that needs to come up that says like, yeah, right. You can't run the optimizer until
+[4546.40-4551.60] you have drivers ready to go. I have anything signed into the available. Thank you.
+[4553.76-4559.68] And so that's a disclaimer or whatever it is. Yes, but I wholeheartedly agree. We shouldn't
+[4559.68-4564.00] be able to mark stuff ready because we're going to be, yeah, like where do these routes go?
+[4564.00-4569.84] How do they get assigned to a driver? That has to be a prerequisite for the optimizer to run.
+[4569.84-4577.44] You got to have people available. Well, yeah, people signed into vehicles and the app.
+[4578.00-4580.56] I'm going to change this entire functional requirement then.
+[4581.76-4584.16] I don't know if that was a miss. I don't know if that was.
+[4586.32-4590.40] Yeah, that's totally okay. We just didn't even start. That's why I didn't even put confirm
+[4590.40-4595.92] done it, right? It's good. We're still open for discussion. So it's good. Okay. So let me
+[4596.00-4603.12] change this entire functional requirement. This is on me. I should remember this.
+[4607.74-4610.86] I'll remember this and change it by this afternoon and update this link.
+[4612.78-4615.66] Based on that, if there are any more questions, I'll update these also.
+[4616.78-4624.06] Because these questions are irrelevant now. Yeah, we should still, I think it's mainly
+[4624.06-4627.10] just put the disclaimer in there. Everything else runs like normal.
+[4629.44-4640.08] Yeah, okay. I will change that. I need to go through some of these things we discussed
+[4641.20-4647.20] about the logout scenarios and update these, right? I will do that. Part status line we've
+[4647.20-4652.08] already discussed, so I need to update this one as well. If optimizer did not find a route,
+[4652.08-4658.32] we'll show UX design notifications of this, right? Visual cues and stuff like that.
+[4659.04-4663.68] I will go through this and fix all of these, Chuck, and tell you when it's updated again
+[4663.68-4669.04] so that you guys can go ahead and take a look. We need sign off on the confirmed ones is
+[4669.04-4681.44] basically the point, if that's okay. Thank you. So from FR5, right? We are starting the work
+[4681.44-4685.52] because these are all optimizer scenarios. We still didn't go through them, but the
+[4685.52-4690.40] depart by calculation and all of that, we're starting the work on the sprint that starts
+[4690.40-4694.96] tomorrow. That's why we need confirmation. I will do that and let you guys know. Okay,
+[4694.96-4704.08] I have to edit this. I need probably 30 more minutes to do this. Okay, that's all I have.
+[4704.08-4711.12] Madison, so action items are on the confirmed ones, get a sign off, and each of these FRs,
+[4711.84-4718.64] is it for pilot or if it's for general rollout? Are the two questions on whenever you get to
+[4718.64-4724.96] meet with Chuck? Okay, so one other thing, Madison. I do have a catch-up with Bonnie this afternoon
+[4724.96-4730.80] at 2.30, and then we had 30 minutes just from a reoccurring, I think. So I don't know if you
+[4730.80-4735.20] want, I mean, I could be available. That was part of my afternoon meetings was I have that on the
+[4735.20-4741.20] counter still, so we can use some of that time this afternoon if you want to go through that as
+[4741.20-4747.20] well. Yeah, sounds good. Okay, I'll ping you if I get hung up with Bonnie, but I'll be, I might just
+[4747.20-4753.36] do it remotely, so I'm here at my desk instead of trying to walk over and then walk back. Okay,
+[4753.36-4759.68] sounds good. Okay, we'll see. Okay, awesome. I will remind you if I forgot anything in this,
+[4759.68-4764.40] but okay, thank you guys. Thank you. Thanks all. Thank you. Bye.
