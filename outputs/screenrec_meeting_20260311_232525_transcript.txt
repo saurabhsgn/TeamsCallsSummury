@@ -1,0 +1,574 @@
+[00:00:04 - 00:00:06] Then then with okay
+[00:00:11 - 00:00:15] So we don't need to do this active driver window because if we do this we'll leave it in a
+[00:00:16 - 00:00:21] Weird position, but what we can do is I can't fight for force logout
+[00:00:23 - 00:00:28] Hermita I want you to take that force logout stuff if you can write that it's very easily
+[00:00:29 - 00:00:31] Done like I feel like you can do it
+[00:00:31 - 00:00:36] I mean other people can pick it like some other is there maybe he can pick it
+[00:00:36 - 00:00:40] He know he did the entire that pink thing to Mosin and Samitra can do
+[00:00:41 - 00:00:48] Okay, we can decide it. You know, I want to see how for when you force logout how mobile will react
+[00:00:52 - 00:00:58] Pick it up. I actually trusted. Yeah force logout endpoints and
+[00:01:01 - 00:01:03] We just need to listen to that, you know
+[00:01:04 - 00:01:08] Notification in the mobile and just do the logout. Yes
+[00:01:09 - 00:01:16] This is about API API and back in but I'll add the details later, right when some sort of actually clears the cards
+[00:01:16 - 00:01:21] But that is one thing we'll do the back ends for this guys release vehicle already has an endpoints
+[00:01:21 - 00:01:23] I'm not worried about this. Yeah
+[00:01:24 - 00:01:30] So for me to add the metadata on a shot for these endpoints because you have it on dispatch and mobile
+[00:01:30 - 00:01:33] Oh, you mean who is force logging them? Yeah
+[00:01:34 - 00:01:39] Okay, wait, wait, did we design which end point we said that was going to be
+[00:01:40 - 00:01:42] We said
+[00:01:43 - 00:01:48] Even for the release right we have it in the mobile as well as functionality. So
+[00:01:50 - 00:01:53] We should do we add it in the driver activity table
+[00:01:55 - 00:01:58] like a force logged out by and at like a
+[00:01:59 - 00:02:04] Table, right? It will be an assignment table when release a vehicle for vehicles. I'm talking about force lognet
+[00:02:05 - 00:02:07] Okay, okay
+[00:02:12 - 00:02:14] With metadata
+[00:02:15 - 00:02:20] With the metadata on driver activity
+[00:02:21 - 00:02:28] Release vehicle endpoint metadata on vehicle assignment
+[00:02:28 - 00:02:30] And
+[00:02:30 - 00:02:35] This gracious will die with metadata only in the center or dispatch, but that's what's
+[00:02:36 - 00:02:39] The track what these guys are doing. Okay. Okay. Uh, oh
+[00:02:40 - 00:02:48] I like this term ensure item potency. We'll also have like list of items right for that. We should think about tables like
+[00:02:49 - 00:02:51] list of how many times this invoice was removed from
+[00:02:52 - 00:02:58] An audit right. So I added that here remember, okay. Nice
+[00:02:59 - 00:03:04] No, no, I didn't add the thing but I just you're talking about a route audit table. Correct. Yes
+[00:03:06 - 00:03:08] Invoice right
+[00:03:09 - 00:03:11] The same thing maybe
+[00:03:12 - 00:03:16] Wait, let me think through this are you so I was going to do a route audit table
+[00:03:16 - 00:03:21] That will have a stop removal action with invoice numbers and all of it
+[00:03:21 - 00:03:28] In that route audit table. Yeah, we should think about it and like Haskell AI so that we don't duplicate data
+[00:03:29 - 00:03:32] Yeah, of course. So I added that question somewhere here
+[00:03:33 - 00:03:36] Anushama I added my name to do that
+[00:03:38 - 00:03:39] See
+[00:03:39 - 00:03:49] Our team we said we'll discuss the last point today. So we don't want multiple audit tables, right?
+[00:03:50 - 00:03:54] Prince like for each this thing. That is why I said like one audit table that can make
+[00:03:55 - 00:03:59] Anyway, we'll have the metadata on who's doing what but one audit table on the
+[00:04:00 - 00:04:06] Actions performed by an dispatcher, you know, like what not just dispatcher any actions performed on a route. It could be removed
+[00:04:06 - 00:04:11] Well reorder anything where did I add that point? I thought maybe I didn't update this one
+[00:04:12 - 00:04:18] Audit table think through the design. This is not a blocker for the functional requirements though
+[00:04:20 - 00:04:26] Exactly. Yeah, not functional requirement technical requirement. Yeah and table think through the design
+[00:04:28 - 00:04:29] Okay
+[00:04:29 - 00:04:31] Wait, let me
+[00:04:31 - 00:04:37] For things that we know it's not what I'm saying is none of the functional requirements should be stored because of metadata
+[00:04:37 - 00:04:40] That's it. Right. But yes route audit table
+[00:04:41 - 00:04:43] I will update this before I forget
+[00:04:44 - 00:04:46] So
+[00:04:46 - 00:04:49] Anything else can you guys remember right now for this?
+[00:04:52 - 00:04:57] Force logout deny force logout for effective pending. These all will need UX design for up
+[00:04:57 - 00:05:02] So but we can do the back end in points and stuff like that for it
+[00:05:03 - 00:05:09] Let's create the cards so that when we'll do a planning right? We'll make sure only to bring in back in constant
+[00:05:10 - 00:05:12] So for the active time, right?
+[00:05:13 - 00:05:15] We didn't get that
+[00:05:15 - 00:05:17] lot of it on
+[00:05:17 - 00:05:20] But we don't send it right on yourself. I mean the
+[00:05:21 - 00:05:23] Content doesn't have an idea. We need to send it from the back end
+[00:05:24 - 00:05:28] Yeah, we have to send it through that down. We have to use the whiteboard endpoint for the second
+[00:05:28 - 00:05:33] I feel like right the same whiteboard endpoint. Don't you guys agree active drivers? I agree
+[00:05:33 - 00:05:38] But the count we show is also not matching today, right? The count shows
+[00:05:40 - 00:05:45] The default number so there there's actually a good amount of work that needs to get done there and a sync up
+[00:05:46 - 00:05:48] and clean up
+[00:05:50 - 00:05:55] I want this to be finalized. Maybe okay. I'll just add your point prints
+[00:05:56 - 00:06:00] Yeah, and that card maybe like it that that doesn't have to be like related to any of these
+[00:06:01 - 00:06:05] Epics, right that link up or calling the API. Maybe we can establish first
+[00:06:07 - 00:06:13] As a card and then like the teams just have to use those already created hooks in the
+[00:06:13 - 00:06:20] implementation and we need to end the login time as well as part of the same part
+[00:06:22 - 00:06:29] Yeah, login. You're right. Yeah activity table for a store, right? We would have to create a new endpoint
+[00:06:30 - 00:06:36] First or yeah, why not create a new endpoint and on the front and just merge it right?
+[00:06:36 - 00:06:38] Why put it everything on the whiteboard endpoint?
+[00:06:39 - 00:06:46] Yeah, because that doesn't have login logout logout will mark that driver activity has logged out, right?
+[00:06:48 - 00:06:50] Repeat this
+[00:06:50 - 00:06:58] Everybody record. Okay, as long as someone gets it for active time. We need a new endpoint
+[00:07:00 - 00:07:06] To return driver activity for that store
+[00:07:08 - 00:07:13] Okay
+[00:07:14 - 00:07:16] I'm just making note so that we don't forget. Okay, so
+[00:07:16 - 00:07:18] We
+[00:07:18 - 00:07:22] Have a lot more work on this when you click click force logout, right?
+[00:07:22 - 00:07:28] There are other things that we have to do in the force logout endpoint such as checking for in route and stuff like that
+[00:07:28 - 00:07:35] Right and by it will be disabled, right? Yes. Oh
+[00:07:37 - 00:07:39] How will we know that on?
+[00:07:40 - 00:07:42] dispatch
+[00:07:44 - 00:07:50] Why must we already get the routes and everything like yes as far as there is a
+[00:07:51 - 00:07:53] End route route we can't do anything
+[00:07:53 - 00:07:56] they
+[00:07:56 - 00:07:58] Yeah
+[00:07:58 - 00:08:05] We could maybe have a complete route and for first logout once we release the complete functionality
+[00:08:05 - 00:08:07] Whether back to store is the only one not left
+[00:08:11 - 00:08:15] I
+[00:08:15 - 00:08:18] Thought your daughter is at daycare
+[00:08:24 - 00:08:26] And
+[00:08:26 - 00:08:35] I'm not saying it's just events or anything. I'm just saying like we can hear it's not anything clicking for online should pop the
+[00:08:37 - 00:08:39] What is this window called
+[00:08:40 - 00:08:50] Active drivers window. I mean we can do this window. It will be static. That's it at this point. What else can we do?
+[00:08:55 - 00:08:56] Okay
+[00:08:56 - 00:09:01] Okay, I'm I wanted one thing. I want to discuss before we move back, right?
+[00:09:01 - 00:09:03] There was a huge discussion about this
+[00:09:05 - 00:09:07] Yes
+[00:09:07 - 00:09:12] Okay, the concept. Let me drink some water and start this because this what is a huge discussion yesterday, too
+[00:09:16 - 00:09:17] So
+[00:09:17 - 00:09:19] Hamitha and Vani brought this question up yesterday
+[00:09:21 - 00:09:28] Depart by has passed right so you're supposed to depart by 2 p.m. Right and it's been to 10 and the driver didn't go
+[00:09:29 - 00:09:31] whatever
+[00:09:31 - 00:09:33] ETS we show on the whiteboard
+[00:09:33 - 00:09:35] right and
+[00:09:36 - 00:09:40] Are now not valid anymore because 10 minutes has passed, right?
+[00:09:40 - 00:09:45] You will show a depart by as turned as red on the route window. So that's not a problem
+[00:09:45 - 00:09:48] but we need some kind of
+[00:09:50 - 00:09:58] Event right like or something that would recalculate the ETA. Otherwise the optimizer when it receives invoices it will still think
+[00:09:59 - 00:10:01] this guy
+[00:10:01 - 00:10:06] Will still return like to 230. So here it will still try and reassign
+[00:10:06 - 00:10:10] Rows, right? So either in the optin go ahead
+[00:10:11 - 00:10:13] No, no, no finish your fine. I thought of it in
+[00:10:14 - 00:10:19] So either in the optimizer we kind of need a check has this guide
+[00:10:19 - 00:10:25] Departed already and is on time something or we need some kind of check on a
+[00:10:25 - 00:10:34] Route service itself where if depart by has passed just can recalculate the ETA and the depart like recalculate the ETA something like that
+[00:10:34 - 00:10:37] I'm thinking through both the options but putting in
+[00:10:38 - 00:10:43] Logic in route optimizer just because this guy has passed so that route optimizer doesn't
+[00:10:44 - 00:10:47] But we should put in something in the optimizer optimizer to
+[00:10:47 - 00:10:49] Inside code
+[00:10:49 - 00:10:55] The last departure timestamp is what updates the ETA's right last day departure time stamp
+[00:10:55 - 00:10:58] So we should definitely do that at least current
+[00:10:58 - 00:11:04] Show an updated ETA because it will just keep chair going up at the clock every minute it will change
+[00:11:04 - 00:11:10] So it's not like really meaningful to have it there now because they know already that the route is missed
+[00:11:10 - 00:11:16] But for the optimizer sake we will always assume that the drivers gonna leave as soon as possible. Yeah
+[00:11:16 - 00:11:20] But we'll assume it but what if it assigns it as the question, right?
+[00:11:20 - 00:11:27] So I'm I'm see I'm supposed to come back at 751. I didn't write because I even departed late now optimizer
+[00:11:27 - 00:11:30] Taking this assumption as 751. It's creating a route. Oh
+[00:11:32 - 00:11:37] To meet the SLA that is the delivery of 8 30 p.m. Mm-hmm. I
+[00:11:38 - 00:11:44] Think it should be there on the outright. I'm sure the ETA itself when you recalculate it. Why would it be on the optimizer?
+[00:11:45 - 00:11:47] No, I'm just saying two options
+[00:11:47 - 00:11:54] I either put it on the road or let the optimizer know that if it's using some of the routes existing routes ETA
+[00:11:54 - 00:12:01] Some some kind of parameter that we can pass in that this route is already delayed. So it might not meet the ETA
+[00:12:02 - 00:12:05] Kind of thing. I'm thinking through the solution. That's it
+[00:12:07 - 00:12:12] And this is not only for the routes which had not yet departed right even for the existing routes
+[00:12:12 - 00:12:17] If there is a reported delay or like, you know, suppose I have to
+[00:12:18 - 00:12:25] No, no, suppose if I started it out, I have to finish up the first stop at 10 20
+[00:12:25 - 00:12:32] Okay, you do some traffic reasons or something. It got delayed to 10 30 now my ETA gets changed, right?
+[00:12:34 - 00:12:40] Yeah, but guys the major thing is right driver should be on time. They're getting matched on that metric
+[00:12:40 - 00:12:42] So if it's a driver issue that
+[00:12:42 - 00:12:45] There are so many external factors, right?
+[00:12:45 - 00:12:48] I know which will always be there and that's the problem
+[00:12:48 - 00:12:54] We will have it optimizer what we can do and I think we have discussed that if any inverse is gonna miss SLA, right?
+[00:12:54 - 00:13:00] We're gonna show a warning sign like hey, this is inverse is gonna miss SLA recalculate optimization or
+[00:13:01 - 00:13:05] Because the estimate the driver's estimated time back keeps changing on dispatch app
+[00:13:05 - 00:13:09] So at some point we have to trigger an alert like this driver doesn't seem like he's gonna make it
+[00:13:10 - 00:13:12] consider external delivery or re-optimize
+[00:13:13 - 00:13:15] We talked about this
+[00:13:15 - 00:13:18] We said no re-optimization
+[00:13:18 - 00:13:24] No, no, no, re-optimization, but like that warning that hey this invoices a multiple miss SLA
+[00:13:24 - 00:13:30] Yeah, so
+[00:13:30 - 00:13:34] We leave it on the driver is what we're saying on the dispatcher to follow
+[00:13:34 - 00:13:39] Yeah, but optimizer will get the most accurate ETA based. It's not like
+[00:13:39 - 00:13:43] He they will always assume that the driver is moving now. So like if
+[00:13:43 - 00:13:46] If the part departure time stamp is noted
+[00:13:46 - 00:13:49] We will use that and add the leg duration
+[00:13:49 - 00:13:54] But it will keep changing if the driver still hasn't recorded a delivery time stamp. I think we have to do that
+[00:13:56 - 00:14:00] So hermit and pins and no, I'm good with all of this
+[00:14:00 - 00:14:05] Should we just confirm with them that it's the responsibility of driver and dispatch or to follow through?
+[00:14:05 - 00:14:10] Otherwise did driver activity report is gonna look like shit. They are all delayed all the time
+[00:14:11 - 00:14:18] Just because if they don't like that and we have to somehow put in some kind of measures, right to
+[00:14:19 - 00:14:21] make sure
+[00:14:24 - 00:14:29] They think through the visual alerts we already have some visual alerts maybe they'll think through it more
+[00:14:29 - 00:14:31] That's it is what I'm trying to say. I'm okay with all this
+[00:14:31 - 00:14:43] Yeah, so I think I we have to bring this situation in front of Chuck and Chuck need to be
+[00:14:43 - 00:14:50] See how the business can handle like a manual intervention. They require during that time or
+[00:14:52 - 00:14:54] the optimizer or
+[00:14:54 - 00:14:58] Auto dispatch need to be taken this scenario
+[00:14:58 - 00:15:04] All three of you are right there's no solution for this problem the only visual indicator should help
+[00:15:04 - 00:15:08] But yeah, it's all business demand, right?
+[00:15:08 - 00:15:14] right now here that business is how they want to tackle this operation and if they will tell like
+[00:15:14 - 00:15:16] They like to go with
+[00:15:17 - 00:15:20] Manual intervention accordingly solution will be ready, right?
+[00:15:21 - 00:15:26] Yeah, I mean I'm with all of you guys. Yeah, I don't I don't think we should put this in the FR
+[00:15:27 - 00:15:34] Because this is a side conversation like a side thing like a additional thing, right? We'll ask this question. See what they say and
+[00:15:36 - 00:15:37] We have to go
+[00:15:37 - 00:15:43] Yeah, it should already be in there for like the visual indicator indicators are there. Yeah
+[00:15:44 - 00:15:48] Yeah, the recalculation part is not there is the point to David
+[00:15:48 - 00:15:52] I just want to let them know that we don't recalculate ETA, right? See there is a
+[00:15:53 - 00:15:59] Until now, whatever we did is fine. We don't need accurate ETA is we were like fine just showing them
+[00:15:59 - 00:16:03] Oh only updating it when the delivery time stamp is done. But in future
+[00:16:04 - 00:16:06] Is that what they're expecting to?
+[00:16:07 - 00:16:17] For auto dispatch is my only question. That's it. Yeah, I put it in a V. You don't keep you don't keep
+[00:16:20 - 00:16:22] But at least you have to do that
+[00:16:25 - 00:16:30] There is already a card what I need to do her meta is I just need to put it to auto dispatch
+[00:16:31 - 00:16:33] report a delay Anusha to find report a delay card
+[00:16:35 - 00:16:37] It's intended to find the
+[00:16:38 - 00:16:41] Go ahead. Sorry. No, no, go ahead. Sorry. I was talking to someone else
+[00:16:42 - 00:16:47] Anusha to find the reporter delay card for adding up to the ETA and
+[00:16:49 - 00:16:50] Put it in
+[00:16:50 - 00:16:54] Auto dispatch. Okay, that's an easy win for us, right?
+[00:16:55 - 00:16:58] Just for the ETA is it'll be an easy win for us
+[00:16:58 - 00:17:00] Okay, I
+[00:17:01 - 00:17:05] Think they'll say for the in progress around that's fine. He can always do a report delay
+[00:17:05 - 00:17:12] But before depart, I don't know my problem is also about before depart only if the visual indicators are helping it's fine
+[00:17:12 - 00:17:18] Hermita will know the feedback in pilot. Basically, that's the problem. We have to make assumptions at this point
+[00:17:18 - 00:17:25] Yeah, we'll but we'll take it ask will this is why I put it in red the audit table. We can put it in red, right?
+[00:17:26 - 00:17:28] We'll see
+[00:17:28 - 00:17:33] Everything that's unanswered. I'm putting in red. I'm just making notes here because I don't want to muddle up the text packs
+[00:17:33 - 00:17:36] Right. Once we get an answer we can move it to text pack
+[00:17:38 - 00:17:42] Okay, sorry we were in FR 11 logout
+[00:17:43 - 00:17:44] I
+[00:17:44 - 00:17:48] Need to what I need to do sort of is go through this entire thing, right?
+[00:17:49 - 00:17:56] Abs are needed. I'll make a list here. You go ahead and create the cards. What we'll do is we'll review it in refinement tomorrow
+[00:17:56 - 00:17:59] There's a I already created 13 card right now
+[00:18:00 - 00:18:02] with the FR 1 9 and 10
+[00:18:03 - 00:18:05] just
+[00:18:05 - 00:18:10] To create because if I live in I have to put something then I can
+[00:18:11 - 00:18:17] No, no, no problem at all. So tell me which ones you've created because we need to review them in refinement tomorrow, correct? So
+[00:18:20 - 00:18:21] Ping you here
+[00:18:21 - 00:18:24] So the other card I created for
+[00:18:28 - 00:18:30] Okay. Thank you. Yeah, what?
+[00:18:31 - 00:18:37] Everything has a label right because without a label, it's they're getting lost and without an epic epic and label is there
+[00:18:38 - 00:18:39] Perfect
+[00:18:39 - 00:18:43] Okay. So what I'll do is I'll just go over these cards once more right and what?
+[00:18:44 - 00:18:46] Add anything that's missing
+[00:18:46 - 00:18:52] Minus stuff if I can get it done. We have to go through all these cards in the refinement tomorrow
+[00:18:52 - 00:19:00] Basically confirm with Madison. Okay. Yeah, because I want to understand because I not review door all over because maybe some
+[00:19:00 - 00:19:01] integration or
+[00:19:01 - 00:19:09] Some automation performance ticket also be required that I have to confirm from you accordingly. I will create the ticket
+[00:19:09 - 00:19:13] Yeah, integration testing and automation card and performance testing sorrow
+[00:19:13 - 00:19:18] Every this one if it's adding new and like if it's we are adding more things
+[00:19:19 - 00:19:23] Borders tough, right? We need performance testing as well. So yeah
+[00:19:24 - 00:19:27] Performance testing is a subject to write
+[00:19:27 - 00:19:29] Correct
+[00:19:30 - 00:19:32] So and
+[00:19:32 - 00:19:33] everything
+[00:19:33 - 00:19:40] Anything should be published and if there are any reporting changes that are that we have through that as well, but
+[00:19:41 - 00:19:44] Let me go through the cards and see what's there based on that
+[00:19:44 - 00:19:50] I'll get an idea on and this is for FR one. You said I thought one for one ten nine
+[00:19:50 - 00:19:56] Okay, okay, so in this status wise, right? I have a quick question
+[00:19:57 - 00:20:05] Can it can we go direct so from invoice it will go to ready and then from ready will it always go directly to delivered?
+[00:20:05 - 00:20:09] I mean there could be obviously cancellations not about that. But can't from ready
+[00:20:09 - 00:20:16] Will it go to routing routed and all that? So routing is only a front-end status. Apparently we can show the
+[00:20:16 - 00:20:21] We don't need so once they click ready, right each ready invoice. We can click we can show us routing
+[00:20:21 - 00:20:28] Let me show this. Yeah, yeah, see routing and routed these two we no need to image optimizer can should not touch it, right?
+[00:20:28 - 00:20:30] while
+[00:20:30 - 00:20:31] Yeah
+[00:20:31 - 00:20:39] Right. So here I am right Prince. Let's talk to the floor. Here I am. It's invoiced
+[00:20:39 - 00:20:45] I clicked this clicked ready to go meaning the back instead of the back
+[00:20:45 - 00:20:51] Clicked ready to go meaning the back end state has changed to ready and this invoice status will change to routing
+[00:20:51 - 00:20:55] We don't show any routed here because it will automatically move to the routes tab
+[00:20:56 - 00:20:59] Yeah, right. So that is why there's no routed here or anything
+[00:21:00 - 00:21:05] But if you I'm trying to think right it's already known route has a status
+[00:21:05 - 00:21:10] Do we want to do an invoice status? I think we put that in the invoice intake if you remember
+[00:21:15 - 00:21:21] No, no, we know need route is routed status in not in any status. So that was Prince's question
+[00:21:21 - 00:21:23] So let's make sure that is true
+[00:21:23 - 00:21:30] So, yeah, we will always go from ready to either delivered or ready to back to invoice, right? Correct. Okay
+[00:21:31 - 00:21:35] I'm we have to yes for now Prince. Mm-hmm
+[00:21:36 - 00:21:38] Yes for now
+[00:21:38 - 00:21:39] the
+[00:21:39 - 00:21:45] Routing but I did put in routed status for wait. Let me show you both the tables there. There are two tables
+[00:21:46 - 00:21:49] Damn you. Oh, wait one second
+[00:21:50 - 00:21:52] Where are both my tables?
+[00:21:53 - 00:21:56] Huh expect is it is it in the text back
+[00:21:58 - 00:22:00] It's something deleted
+[00:22:00 - 00:22:02] It cannot be deleted
+[00:22:05 - 00:22:11] This is I attached the freaking ah, yes, thank you
+[00:22:14 - 00:22:19] If you guys remember we didn't start it in conference, right so some might be missed ah here
+[00:22:21 - 00:22:26] Inviced on hold will still be the routing ready. We said no more routing
+[00:22:26 - 00:22:30] We can use ready status and front-end as routing. I still don't like we want routed status
+[00:22:30 - 00:22:32] Can we decide that in as we go?
+[00:22:32 - 00:22:39] Because right now I don't see a point in a routed status Prince and routing also will just be like it's ready ready
+[00:22:39 - 00:22:41] We'll show us routing right? That's all. Yeah
+[00:22:42 - 00:22:48] Because we are our whole logic for the optimizer will be on the radio status, right?
+[00:22:48 - 00:22:51] You know to look for any other status
+[00:22:51 - 00:22:53] Mm-hmm. Yes
+[00:22:53 - 00:22:59] Okay, I don't know about the crowded guys. I need to think through the scenarios once more. Yeah, go ahead with me
+[00:23:00 - 00:23:05] So you're saying once the invoice is cleared like selected by the
+[00:23:06 - 00:23:11] Dispatcher it will be ready and there won't be any status once the optimizer creates a route
+[00:23:12 - 00:23:13] Yep
+[00:23:13 - 00:23:15] Mm-hmm
+[00:23:15 - 00:23:19] Is for now invoiced ready you want it? I
+[00:23:20 - 00:23:24] Have to like you know, do a burger or anything won't it be confusing. I don't know
+[00:23:25 - 00:23:27] We will have a science without true
+[00:23:28 - 00:23:34] For the routing status, right? So so ready and assigned to route here if it's true or not. Okay
+[00:23:35 - 00:23:40] I think that is why I'm saying I can't make that state that decision. We know right?
+[00:23:40 - 00:23:42] I don't see any scenarios right now
+[00:23:42 - 00:23:48] But what if some of the efforts give you more need more details for this is the thing
+[00:23:49 - 00:23:53] Route status is as is right. We are not changing that anymore. I
+[00:23:55 - 00:23:57] Don't think they even need to create it anymore
+[00:23:57 - 00:23:59] But I'll leave it
+[00:23:59 - 00:24:05] So sorry for you to be ever created meaning the route an abandoned route. Sometimes you can assign it without a driver
+[00:24:06 - 00:24:13] Okay, I can't see anything else in other than this, right?
+[00:24:15 - 00:24:18] Maybe routed I can't think of any scenarios
+[00:24:18 - 00:24:24] I mean if you think of anything like debugging scenarios anything we can definitely add it. I'm not seeing the problem with that
+[00:24:24 - 00:24:26] It's just I
+[00:24:26 - 00:24:33] Don't see a point right now and for routing, right? We should add like routing actions as in
+[00:24:33 - 00:24:35] when the driver marks
+[00:24:35 - 00:24:42] Invoice as ready or invoices as ready. We should like every time we should like note down or audit which
+[00:24:43 - 00:24:49] Call is actually calling the optimizer or is it like the no rush cloud tasks, which is calling the optimizer
+[00:24:50 - 00:24:58] That will be repeat that repeat that sorry for like actual routing right when the optimizer gets triggered either by
+[00:24:59 - 00:25:01] marking invoices as ready or by
+[00:25:01 - 00:25:05] No rushes cloud task you we should order
+[00:25:06 - 00:25:08] You're clicking ready, right?
+[00:25:08 - 00:25:12] We are clicking ready, but that no rush order like doesn't really get
+[00:25:12 - 00:25:17] Hey, right until but we will be ready status
+[00:25:17 - 00:25:20] The only thing that will be in ready status is no rush orders. Yes
+[00:25:20 - 00:25:23] So if a user marks three now rushes at it as ready
+[00:25:24 - 00:25:28] What should really happen if they're gonna be delivered tomorrow and we have like one driver who's already on it out
+[00:25:28 - 00:25:31] We will not route those no rushes. So
+[00:25:31 - 00:25:38] We should also audit that like auto dispatcher got three ready invoices. All of them are no rush and no other invoices were
+[00:25:40 - 00:25:44] Available to be queued. That's why auto dispatch made a decision to not send
+[00:25:44 - 00:25:50] To requested outing algorithm, but even that trail should be left in some way
+[00:25:51 - 00:25:56] So, you know how that will get when you add this new ready status into invoice action history
+[00:25:57 - 00:26:01] The time difference between it move from ready status to
+[00:26:04 - 00:26:08] Create now you're moving to route status. You get what I'm saying, right?
+[00:26:10 - 00:26:12] Did I confuse you know
+[00:26:12 - 00:26:14] So see any
+[00:26:15 - 00:26:21] No rush any any invoices should be marked to ready. Correct. Mm-hmm. This one, right?
+[00:26:21 - 00:26:26] So for platinum orders, it will mark as ready and immediately in one or two seconds
+[00:26:26 - 00:26:31] The status will the status will still be right this and it will go to pending. Correct
+[00:26:31 - 00:26:34] But for you know rush orders, the status will be like this and it will not go to
+[00:26:36 - 00:26:40] Pending it will take a day or something. You're saying we need an audit for that
+[00:26:40 - 00:26:43] We need an audit for the optimizer trigger
+[00:26:44 - 00:26:50] However, it was triggered or if auto dispatch like decided not to trigger optimizer because of no rush orders
+[00:26:50 - 00:26:53] or if optimizer decided to not trigger or
+[00:26:54 - 00:26:58] Auto dispatch decided not to trigger optimizer because there are no drivers available
+[00:26:59 - 00:27:05] How will we should show some you a no UX notification to the dispatcher on this right? Yes
+[00:27:05 - 00:27:12] We should have like a metric thing like or not a metric not exactly metric, but like a view for the dispatchers
+[00:27:12 - 00:27:14] I don't know if this was phase two though
+[00:27:15 - 00:27:21] But that's what money money like we discussed in PI planning right last year planning that one of the requirements would be to show
+[00:27:21 - 00:27:29] Like what happened when invoices get marked as ready like yeah, then having a routed status will help right Prince
+[00:27:29 - 00:27:36] I don't know because it's not about the status. It's about like what is auto dispatch doing
+[00:27:36 - 00:27:42] How do we that will we should auto dispatch will send a notification right? Remember this?
+[00:27:45 - 00:27:52] Open the not invoicing take good blood on this not this so I know it's not very detailed
+[00:27:54 - 00:27:56] For last effort, what is the last effort?
+[00:27:58 - 00:28:02] If optimizer did not find the route we can also say if optimizer did not
+[00:28:02 - 00:28:08] If no rush deliveries it didn't create immediately for no rush deliveries
+[00:28:09 - 00:28:16] Put toast notification some visual cues in the environment show it has an optimization issue. So we can also show your same concern, right?
+[00:28:17 - 00:28:19] No
+[00:28:19 - 00:28:22] We can show it for no rush to we can utilize the same thing
+[00:28:24 - 00:28:29] Mmm, I was talking more about an audit trail of what auto dispatch is deciding go
+[00:28:30 - 00:28:36] You say look up on a shot. Oh, not like a UX was it okay. Okay audit trail will help
+[00:28:36 - 00:28:42] Okay, not just okay, not just logs or something. So that also we talked about
+[00:28:45 - 00:28:46] I
+[00:28:46 - 00:28:53] Put it somewhere. Yeah on the optimization functional spec when we do right each not just no rush each
+[00:28:56 - 00:28:58] Each decision taken by the
+[00:28:59 - 00:29:02] Optimizer right doesn't matter why it picked these two roads
+[00:29:02 - 00:29:07] Why it did all of those should be returned as an audit trail by the optimizer. Nice
+[00:29:07 - 00:29:13] Thanks is what I put it in like one of the things when Venkat came in right like I told him we need that
+[00:29:13 - 00:29:19] I don't know question. Yeah, that makes sense. I have one more question unless you want to go some other direction
+[00:29:19 - 00:29:23] Oh, I look I was just looking at this I was searching for statuses guys
+[00:29:24 - 00:29:26] But go ahead with your question and then we'll go over this
+[00:29:26 - 00:29:29] Yeah, so like what happens if optimizer is
+[00:29:30 - 00:29:32] Running routing and then another
+[00:29:33 - 00:29:34] trigger
+[00:29:34 - 00:29:36] calls off
+[00:29:36 - 00:29:38] That's the meeting for tomorrow
+[00:29:39 - 00:29:46] We have to disagree. Remember that's the agenda. I put in discuss our event-based mechanism and how we are gonna handle all these scenarios. Yes
+[00:29:46 - 00:29:51] But I have an idea. I still need to form some thoughts around it
+[00:29:51 - 00:29:53] on
+[00:29:54 - 00:29:58] One more doubt on no rush emissions, so
+[00:29:59 - 00:30:02] Every time do we send those no rush to the optimizer of no
+[00:30:03 - 00:30:05] we do
+[00:30:06 - 00:30:10] Besides it's a no rush and it should do it should create a task on it
+[00:30:10 - 00:30:14] So whenever delivery time is real coming near will do a club will create a cloud task
+[00:30:15 - 00:30:21] Is the is that's why no rush is a complete separate discussion
+[00:30:21 - 00:30:27] I left it out right or if we have the basics of auto-dispatch ready and the basics of optimizer ready
+[00:30:27 - 00:30:33] We can deal with no rush. We don't even have a basics service ready at this point
+[00:30:37 - 00:30:40] Read through cloud tasks. Amita cloud tasks
+[00:30:43 - 00:30:50] So team this was this is where I was searching for all the status. So are we saying I'll remove this one
+[00:30:51 - 00:30:53] The routing and ready are the same technically, okay
+[00:30:56 - 00:31:03] Also, when I earlier talked about it like cloud tasks cloud queue. No said is very much against it. I don't know why
+[00:31:03 - 00:31:05] Mm-hmm. Okay
+[00:31:07 - 00:31:08] No, sure
+[00:31:08 - 00:31:13] No, sure is very good. Actually. Yeah, I can take his opinion. He's the one who comes up with a lot of stuff
+[00:31:13 - 00:31:19] So yeah and pub server pub subs for like the only good way to do it
+[00:31:19 - 00:31:26] So we should like ask ravinder to do some research to or like no ravinder is not an architect. He's in it. Sorry
+[00:31:27 - 00:31:30] Okay, so should we talk to param or somewhere here?
+[00:31:30 - 00:31:32] You could try to make that decision
+[00:31:33 - 00:31:38] No, no, no, no rush. We'll do a separate decision. First. We have to make the auto dispatch decision, right?
+[00:31:38 - 00:31:42] The triggering how what triggers it once that is ready, right?
+[00:31:42 - 00:31:46] We can talk through no rush either use the same kind of trigger and modify it
+[00:31:46 - 00:31:54] For no rush or either use a separate type like cloud tasks or something. We don't even have this pub sub ready is my problem, right?
+[00:31:55 - 00:31:57] So every day we'll have design discussions
+[00:31:57 - 00:32:03] That's why I included wani on this right if wani says we'll go to param will go to param
+[00:32:04 - 00:32:06] Right, that's good. I
+[00:32:08 - 00:32:11] Don't want to go to param without wani saying anything
+[00:32:14 - 00:32:16] I'm gonna
+[00:32:18 - 00:32:21] Scratch off this can I start strike this off?
+[00:32:23 - 00:32:25] Okay
+[00:32:25 - 00:32:28] So team here I included a route in status
+[00:32:28 - 00:32:33] The invoice went through the optimizer and created an efficient route auto dispatch sets the status after optimizer sends an efficient route
+[00:32:34 - 00:32:36] Don't see a need
+[00:32:36 - 00:32:41] But now you bring up that no rush rate if it's it didn't if it's sitting in this ready status
+[00:32:41 - 00:32:43] We can in from invoice action history
+[00:32:43 - 00:32:49] We can see how the up like like create a report between routed status timestamp and ready status time
+[00:32:49 - 00:32:51] So that's the only use case I see I don't know if it's important
+[00:32:56 - 00:32:59] But I did include a routed status any comments on this
+[00:33:00 - 00:33:02] Should I strike this off for now? I
+[00:33:10 - 00:33:15] Think it is better. I wish I could have that status, but you know, that's why I'm like on both sides
+[00:33:15 - 00:33:18] I just need good scenarios hermita to think through you get it, right? So
+[00:33:19 - 00:33:22] now if you have like, you know
+[00:33:24 - 00:33:30] As you said right like if you want to get a report like how many minutes the optimizer took for these kind of invoices
+[00:33:30 - 00:33:36] You can get that report from ready to you can look at the route and I say so I'm done pending, right?
+[00:33:37 - 00:33:39] Yes
+[00:33:39 - 00:33:43] Marcus ready time because that will be in the inverse action history table
+[00:33:44 - 00:33:46] Any others
+[00:33:47 - 00:33:53] We can see team like I'm not doing anything we can create a one point two document and we can add it
+[00:33:53 - 00:33:56] I'm not I'm not against it. It's whatever you guys
+[00:33:57 - 00:34:01] Come up with right for now. I can't think of any scenarios is what I'm trying to say. That's it
+[00:34:01 - 00:34:03] I think as we look at it, right?
+[00:34:03 - 00:34:08] We need to like this is all in our head as we look at how it's working. We'll like get more scenarios
+[00:34:08 - 00:34:10] So we should just start it. Yeah
+[00:34:11 - 00:34:16] So let's start by creating cards for what we have. Let's review them in the refinement tomorrow
+[00:34:16 - 00:34:23] I want one effort to go to princess team another effort to go into parties and parties while they're finishing up the invoice intake
+[00:34:24 - 00:34:26] Right. So let's talk through that
+[00:34:27 - 00:34:30] I
+[00:34:30 - 00:34:33] Think we have refinement tomorrow. Sorry you created cards
+[00:34:33 - 00:34:39] So my task is to go through these cards you go ahead and create tasks for sorry the cards for this one as well
+[00:34:40 - 00:34:47] Yeah, we haven't yeah, we have another refinement next week, right? That is for that you let's use that for princess pod
+[00:34:48 - 00:34:50] Whatever they are going to pick up on the auto dispatch
+[00:34:51 - 00:34:54] Tomorrow's refinement let's use for the remaining FRS
+[00:34:56 - 00:34:58] So
+[00:35:01 - 00:35:07] So for part one right are are we gonna work on the DVR like, you know, how it's gonna be
+[00:35:08 - 00:35:11] Yeah, you guys should start get started with DVR
+[00:35:11 - 00:35:16] I'm gonna assign some spike cards to you like the wheels start communication, right?
+[00:35:16 - 00:35:23] I want to I want someone to go through each criteria and wheels.com. Just see what's there. That's it. Nothing else, right?
+[00:35:23 - 00:35:27] While the other part while the rest of the three pods are doing this
+[00:35:27 - 00:35:34] So DVR we don't have a deadline for me to auto dispatch. We do have a deadline. So always that is the highest priority, right?
+[00:35:34 - 00:35:37] So because we don't have all the cars and all functional requirements
+[00:35:38 - 00:35:42] Specified that is why I'm not completely assigning auto dispatch to your team also
+[00:35:42 - 00:35:48] right three pods pods are already working they can nice collaborate together make changes and
+[00:35:50 - 00:35:55] If needed and if we are not able to get the work done with these three pods will include your part two is my idea
+[00:35:55 - 00:36:00] For now next I think from next Thursday itself princess pod will have time to pick up stuff
+[00:36:00 - 00:36:05] I'm thinking from next Wednesday Thursday, so they'll start picking up by then we'll know more hermita
+[00:36:05 - 00:36:12] I want to see how cross how we can collaborate on PR's merging to delivery API is working on the same
+[00:36:12 - 00:36:16] Stuff, you know, I want to see how that happens with all these three pods
+[00:36:16 - 00:36:22] Yeah, but now let's say DVR spike do like let's just do a data modeling on that
+[00:36:22 - 00:36:24] right, and then we can
+[00:36:25 - 00:36:26] Go from there
+[00:36:26 - 00:36:33] So my part was can I just give this DVR spike to develop and you know, just let him
+[00:36:34 - 00:36:40] Yeah, yeah, let him do that and I can you know jump on this auto dispatch like what are the spikes and everything
+[00:36:40 - 00:36:42] Yeah, absolutely
+[00:36:42 - 00:36:47] Yeah, and we had a automation card. Maybe I'll just push that one out because
+[00:36:49 - 00:36:55] Custom stops we have the they're going to do the automation right on which are whatever the queue is today
+[00:36:56 - 00:37:01] Custom stops is already done right hamita. They won't go pick up and do a do it for that
+[00:37:01 - 00:37:07] So I'm advising the queue is to come up with also integration testing if I don't know if you've heard in this thing
+[00:37:07 - 00:37:09] They're doing that
+[00:37:11 - 00:37:13] What about
+[00:37:14 - 00:37:20] Sorry, what about the other thing like the DVR are you guys also working on that?
+[00:37:24 - 00:37:28] Yeah, DVR they'll work on that's why I assign DVR to them right
+[00:37:29 - 00:37:33] Let's see how auto dispatch will first work with three pots then include the fourth part
+[00:37:33 - 00:37:38] I don't want everyone all of them working on auto dispatch and it becomes a huge this thing
+[00:37:38 - 00:37:44] And now you guys will start picking up. Hopefully next Thursday or Friday is what I'm thinking Prince
+[00:37:44 - 00:37:50] You're team right on all the pub sub stuff and then soon after that next one after that Wednesday
+[00:37:50 - 00:37:54] Hermita's team will be a sprint over. We'll see what DVR cards can be created
+[00:37:54 - 00:38:00] I want only one or two one day one that kind of thing and meet on the DVR you get it. I
+[00:38:01 - 00:38:05] Can do the spike and just leave the cars on the lip to do the implementation? Yeah, then
+[00:38:06 - 00:38:12] You get an idea like how the people doing okay, correct. So team the goal is by mid March
+[00:38:12 - 00:38:14] We need to get the auto dispatch service done
+[00:38:15 - 00:38:16] right
+[00:38:16 - 00:38:22] Though I feel like most work will be on auto dispatch and by the next two weeks
+[00:38:22 - 00:38:28] We'll also define a contract for route optimizer. So at least auto dispatch was the connection between both of them should be done
+[00:38:30 - 00:38:34] By the end of next two weeks so that that should be done
+[00:38:36 - 00:38:38] What else yeah
+[00:38:39 - 00:38:42] We can regroup. We can always change the priorities, right?
+[00:38:42 - 00:38:46] I just want another part to pick up auto dispatch stuff starting next Wednesday at once there this thing is done
+[00:38:46 - 00:38:52] I don't know what will come out again when a pack asks for a release because we also have a pack at this point
+[00:38:52 - 00:39:00] Right, it will be mostly QE part though. Is QE part gonna do release testing? Yes, they should be they are not onboarded yet
+[00:39:00 - 00:39:02] That's why I'm still assigning with Sunwoo and everyone
+[00:39:03 - 00:39:09] Makes sense. Okay. Yeah, I think we should once we do the changes right release can be easy
+[00:39:09 - 00:39:15] we just need I I wonder if like QE's can start using AI to generate like a change log and
+[00:39:16 - 00:39:20] Like do all that work, you know, or do you think that should always just be devs?
+[00:39:21 - 00:39:25] It should be devs just because I mean
+[00:39:26 - 00:39:29] Both but code changes QE's can't understand right?
+[00:39:30 - 00:39:31] They
+[00:39:31 - 00:39:34] Think from a different perspective you made a code change
+[00:39:34 - 00:39:40] We don't know what the code changes, but they know the feature. Oh, I now need to test this entire feature is what they are thing
+[00:39:40 - 00:39:42] Is eventually care about?
+[00:39:43 - 00:39:46] Eventually, no one team will be responsible for release right though
+[00:39:48 - 00:39:51] No, QE you'll always have a QE team
+[00:39:51 - 00:39:57] Yeah, that makes sense. No, but like who does the releases like who does the prod changes tracker?
+[00:39:57 - 00:40:01] If three teams are making changes and all that code is pushed together
+[00:40:07 - 00:40:13] They also have to be in there you this offshore also have onshore and offshore has to be in there right divide and share responsibilities
+[00:40:14 - 00:40:21] See it why you've done the releases now. Let's also offshore team start learning the releases the next one
+[00:40:21 - 00:40:25] Yeah, that's what I was thinking right because they can do it at their time so easily
+[00:40:26 - 00:40:31] But the only thing is without an onshore person. They shouldn't be doing it right? Yeah
+[00:40:31 - 00:40:38] Yeah, I mean it will be at our 930 1030 time with like daylight saving they can do it, right? No, it's later
+[00:40:39 - 00:40:43] No, Prince. I'm trying to see auto dispatch pilot is the first release
+[00:40:43 - 00:40:46] Right, we all know we'll have
+[00:40:48 - 00:40:52] Why it will be the first yeah, I mean only there yeah, I agree with void
+[00:40:53 - 00:40:59] Do we have anything else like that? Yeah. Yeah, the color indicators also they want to do it even before right?
+[00:40:59 - 00:41:01] I mean
+[00:41:01 - 00:41:06] Color indicators they can't do before because you have to click ready, right ready button won't be there until the pilot
+[00:41:07 - 00:41:12] No, they said like the color window. We can instead of using it for ready. We will just use it for like
+[00:41:13 - 00:41:15] routing like
+[00:41:16 - 00:41:21] Not not confirmed but like obviously they they said like whatever we can do as part of pilot
+[00:41:21 - 00:41:25] We just need to make a plan like so once we have this done, right and a good QA is done
+[00:41:25 - 00:41:28] But we like show it in the spring demo
+[00:41:28 - 00:41:33] That's when we can talk about like do we want to send it as a standalone and like start those conversations
+[00:41:34 - 00:41:37] This is why tomorrow the first thing in refinement
+[00:41:37 - 00:41:41] I want product to go to each of fuck it is it just for pilot or if it because it
+[00:41:42 - 00:41:47] Depart by and everything these are easy depart by you can do without the pilot you get exactly
+[00:41:48 - 00:41:52] Just and all that but you have to do there is other stuff that you can't do
+[00:41:53 - 00:41:57] Like this one you can't do before right the logout scenarios. You can't do before
+[00:41:58 - 00:42:05] So things like that you can't do before the pilot. That is why I want to confirmation vision like proper confirmation from them
+[00:42:05 - 00:42:07] But yeah, there are things for me that will go out
+[00:42:10 - 00:42:16] Yeah, I mean for sure and on should them should be there yeah just to guide them
+[00:42:17 - 00:42:23] Yeah, I'm gonna show you this won't be done by one person right there has to be yeah
+[00:42:23 - 00:42:27] Go ahead one last thing for the a pack right since we talked about a pack
+[00:42:27 - 00:42:33] We thought to revisit the custom stop release once they come back right on Monday this one. Yeah
+[00:42:33 - 00:42:35] Yeah
+[00:42:35 - 00:42:37] So her meeta pink sun
+[00:42:37 - 00:42:43] See if we can pull a QA for the custom stop testing because cuz I know is already working on other stuff right now
+[00:42:44 - 00:42:48] Pink Sun would see if we can pull an offshore QA for custom stops testing
+[00:42:48 - 00:42:54] So we the QA is right now only working on automation, but releases are also high priority, right?
+[00:42:55 - 00:42:57] So and she can't won't have anything on a show this friend
+[00:42:58 - 00:43:03] Will you be freed up? No customer really is no customer management release is going in
+[00:43:04 - 00:43:06] remember returns
+[00:43:08 - 00:43:12] That is high priority the returns releases high priority, but that's only dispatch an API
+[00:43:12 - 00:43:16] He's doing backward compatibility, right? So let him let she can't do that
+[00:43:16 - 00:43:19] Son of needs to test the DV IR and custom stops together
+[00:43:20 - 00:43:27] And I guess the release after that we have to do two more one will the with the returns optimization all work
+[00:43:27 - 00:43:29] We're working on now
+[00:43:29 - 00:43:33] After customer management that will be the next US 80 release and after that
+[00:43:34 - 00:43:38] If you like it or not, it's gonna be the metrics analytical dashboard
+[00:43:39 - 00:43:40] so
+[00:43:40 - 00:43:44] That is not production ready yet. Until we come with a solution. It shouldn't be
+[00:43:47 - 00:43:53] It's this is like a month or two month timeline like that those are the next two releases that will happen
+[00:43:53 - 00:43:57] All right, you have more and in the middle customer. I sell a release back
+[00:43:58 - 00:44:04] Yeah, a pack is separate. Yeah, that's gonna happen a pack. We have three initiatives. We're currently actively working on so
+[00:44:04 - 00:44:10] But I don't know if it's still like Srikant does us AG Sanup does a pack. I think it has to be mixed, right?
+[00:44:11 - 00:44:13] Yeah, it has to be mixed the only problem
+[00:44:13 - 00:44:20] I like some of this for a pack is because he knows a lot of a pack scenarios such as he's the only one that has an actual
+[00:44:20 - 00:44:24] SOTI device access from a pack. None of us can get it
+[00:44:25 - 00:44:29] That's the reason I asked some of to do the a pack or device testing
+[00:44:29 - 00:44:36] Regular testing anyone can do device testing only Sanup can do it. There there's this not even statics. There's a completely different thing
+[00:44:38 - 00:44:40] I
+[00:44:40 - 00:44:44] Know we are gone over time, but so we can discuss more things if we want
+[00:44:44 - 00:44:49] But do you have like a few minutes for that business conflict change to discuss the PR? I
+[00:44:50 - 00:44:53] Can look at it Prince. I just need a break and some water
+[00:44:53 - 00:44:56] Yeah, I look at it after this call. Thanks
+[00:44:58 - 00:45:00] Hamitha sort of do you guys have anything else?
+[00:45:02 - 00:45:12] Yeah, just go ahead and review it sort of these these cars need as much detail as possible, right?
+[00:45:12 - 00:45:17] Otherwise, we are making decisions and the offshore team doesn't understand those decisions, right?
+[00:45:17 - 00:45:22] So that is what I understood from the stand-up today that they're not on. Yeah, so flow
+[00:45:22 - 00:45:29] Diagrams everything should be necessary. We should do a flow diagram. If you can write from the invoice to ready to all of that
+[00:45:30 - 00:45:32] Yeah
+[00:45:32 - 00:45:40] Okay, and it's okay as long as we connect daily, there won't be any gaps, but I would like them to on just
+[00:45:40 - 00:45:44] It better. They only just started dipping their toes into this project
+[00:45:44 - 00:45:47] So I'm guessing also to take one more week once again
+[00:45:47 - 00:45:49] I'm sure you guys have a good time
+[00:45:49 - 00:45:51] I'm sure you guys have a good time
+[00:45:51 - 00:45:53] I'm sure you guys have a good time
+[00:45:53 - 00:45:55] I'm sure you guys have a good time
+[00:45:55 - 00:45:57] I'm sure you guys have a good time
+[00:45:57 - 00:45:59] I'm sure you guys have a good time
+[00:46:00 - 00:46:04] I'm guessing also to take one more week once they have all have their hands in the project
+[00:46:04 - 00:46:06] They'll understand the endpoints and everything
+[00:46:06 - 00:46:11] I want everyone to look at the endpoints just patch up and mobile app and get a feel for it so that they can start understanding
+[00:46:11 - 00:46:14] Why our codecs are not just you know
+[00:46:14 - 00:46:16] asking
+[00:46:18 - 00:46:23] Again guys if you can use Claude it can understand context really well like much better
+[00:46:24 - 00:46:27] When I say cortex any AI tool, let's just say any AI tool
+[00:46:28 - 00:46:34] Gemini, Claude, Codex anything, but be careful to use it on your Windows machine. I heard it
+[00:46:34 - 00:46:36] has bad
+[00:46:40 - 00:46:44] All right, I have
+[00:46:44 - 00:46:49] Two action items on my interviews or ups cards and princess cards. I will go do that
+[00:46:49 - 00:46:52] And I'm after taking a five-minute break anything else
+[00:46:52 - 00:46:59] I'm sure do can we get on a call like, you know whenever you're free with Asha. Oh
+[00:47:00 - 00:47:06] The performance testing absolutely. Yes, just send me that link once actually, I know where it is. Don't worry. I'll
+[00:47:07 - 00:47:08] I'll review it
+[00:47:08 - 00:47:10] She reached out to me regarding it
+[00:47:10 - 00:47:15] But I was like I have no idea about it if you need guidance ask like Mandrimo or Mosina
+[00:47:15 - 00:47:20] Even I don't have let you know much context on it. I can
+[00:47:25 - 00:47:27] Okay, thank you. Thank you. Bye

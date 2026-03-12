@@ -1,0 +1,99 @@
+# ScreenRec Meeting
+
+- Generated At: 2026-03-11T23:25:25
+- Meeting Type: mixed
+
+## Executive Summary
+- [00:00:04 - 00:00:06] Then then with okay [00:00:11 - 00:00:15] So we don't need to do this active driver window because if we do this we'll leave it in a [00:00:16 - 00:00:21] Weird position, but what we can do is I can't fight for force logout [00:00:23 - 00:00:28] Hermita I want you to take that force logout stuff if you can write that it's very easily [00:00:29 - 00:00:31] Done like I feel like you can do it [00:00:31 - 00:00:36] I mean other people can pick it like some other is there maybe he can pick it [00:00:36 - 00:00:40] He know he did the entire that pink thing to Mosin and Samitra can do [00:00:41 - 00:00:48] Okay, we can decide it. You know, I want to see how for when you force logout how mobile will react [00:00:52 - 00:00:58] Pick it up. I actually trusted. Yeah force logout endpoints and [00:01:01 - 00:01:03] We just need to listen to that, you know [00:01:04 - 00:01:08] Notification in the mobile and just do the logout. Yes [00:01:09 - 00:01:16] This is about API API and back in but I'll add the details later, right when some sort of actually clears the cards
+
+## Discussed Points
+- [00:00:04 - 00:00:06] Then then with okay
+- [00:00:11 - 00:00:15] So we don't need to do this active driver window because if we do this we'll leave it in a
+- [00:00:16 - 00:00:21] Weird position, but what we can do is I can't fight for force logout
+- [00:00:23 - 00:00:28] Hermita I want you to take that force logout stuff if you can write that it's very easily
+- [00:00:29 - 00:00:31] Done like I feel like you can do it
+- [00:00:31 - 00:00:36] I mean other people can pick it like some other is there maybe he can pick it
+- [00:00:36 - 00:00:40] He know he did the entire that pink thing to Mosin and Samitra can do
+- [00:00:41 - 00:00:48] Okay, we can decide it.
+- You know, I want to see how for when you force logout how mobile will react
+- [00:00:52 - 00:00:58] Pick it up.
+- [00:01:09 - 00:01:16] This is about API API and back in but I'll add the details later, right when some sort of actually clears the cards
+- [00:06:01 - 00:06:05] Epics, right that link up or calling the API.
+
+## Decisions
+- [00:00:41 - 00:00:48] Okay, we can decide it.
+- Don't you guys agree active drivers?
+- [00:05:50 - 00:05:55] I want this to be finalized.
+- [00:14:00 - 00:14:05] Should we just confirm with them that it's the responsibility of driver and dispatch or to follow through?
+- [00:18:52 - 00:19:00] Basically confirm with Madison.
+- [00:19:01 - 00:19:09] Some automation performance ticket also be required that I have to confirm from you accordingly.
+- [00:22:30 - 00:22:32] Can we decide that in as we go?
+- [00:26:44 - 00:26:50] However, it was triggered or if auto dispatch like decided not to trigger optimizer because of no rush orders
+- [00:26:50 - 00:26:53] or if optimizer decided to not trigger or
+- [00:26:54 - 00:26:58] Auto dispatch decided not to trigger optimizer because there are no drivers available
+
+## Action Items
+- [00:00:11 - 00:00:15] So we don't need to do this active driver window because if we do this we'll leave it in a
+- You know, I want to see how for when you force logout how mobile will react
+- [00:01:01 - 00:01:03] We just need to listen to that, you know
+- It will be an assignment table when release a vehicle for vehicles.
+- [00:02:30 - 00:02:35] This gracious will die with metadata only in the center or dispatch, but that's what's
+- [00:03:16 - 00:03:21] That will have a stop removal action with invoice numbers and all of it
+- [00:04:41 - 00:04:43] I will update this before I forget
+- These all will need UX design for up
+- We need to send it from the back end
+- [00:06:13 - 00:06:20] implementation and we need to end the login time as well as part of the same part
+
+## Open Items
+- So I added that question somewhere here
+- [00:04:52 - 00:04:57] Force logout deny force logout for effective pending.
+- [00:09:17 - 00:09:19] Hamitha and Vani brought this question up yesterday
+- [00:11:16 - 00:11:20] But we'll assume it but what if it assigns it as the question, right?
+- We'll ask this question.
+- [00:16:07 - 00:16:17] For auto dispatch is my only question.
+- I have a quick question
+- So that was Prince's question
+- [00:26:26 - 00:26:31] The status will the status will still be right this and it will go to pending.
+- [00:26:36 - 00:26:40] Pending it will take a day or something.
+
+## Risks / Blockers
+- This is not a blocker for the functional requirements though
+- [00:12:40 - 00:12:42] So if it's a driver issue that
+- [00:28:09 - 00:28:16] Put toast notification some visual cues in the environment show it has an optimization issue.
+- So we can also show your same concern, right?
+
+## Conclusions
+- [00:00:41 - 00:00:48] Okay, we can decide it.
+- Don't you guys agree active drivers?
+- [00:05:50 - 00:05:55] I want this to be finalized.
+- [00:14:00 - 00:14:05] Should we just confirm with them that it's the responsibility of driver and dispatch or to follow through?
+
+## Technical Notes
+- [00:01:09 - 00:01:16] This is about API API and back in but I'll add the details later, right when some sort of actually clears the cards
+- [00:06:01 - 00:06:05] Epics, right that link up or calling the API.
+- [00:10:25 - 00:10:34] Route service itself where if depart by has passed just can recalculate the ETA and the depart like recalculate the ETA something like that
+- [00:19:00 - 00:19:01] integration or
+- [00:19:09 - 00:19:13] Yeah, integration testing and automation card and performance testing sorrow
+- We don't even have a basics service ready at this point
+- [00:36:05 - 00:36:12] I want to see how cross how we can collaborate on PR's merging to delivery API is working on the same
+- [00:37:01 - 00:37:07] So I'm advising the queue is to come up with also integration testing if I don't know if you've heard in this thing
+- [00:38:12 - 00:38:14] We need to get the auto dispatch service done
+- [00:43:08 - 00:43:12] That is high priority the returns releases high priority, but that's only dispatch an API
+
+## Functional Notes
+- Yeah, not functional requirement technical requirement.
+- [00:14:43 - 00:14:50] See how the business can handle like a manual intervention.
+- [00:15:04 - 00:15:08] But yeah, it's all business demand, right?
+- [00:15:08 - 00:15:14] right now here that business is how they want to tackle this operation and if they will tell like
+- [00:25:20 - 00:25:23] So if a user marks three now rushes at it as ready
+- [00:44:44 - 00:44:49] But do you have like a few minutes for that business conflict change to discuss the PR?
+
+## Next Steps
+- [00:00:11 - 00:00:15] So we don't need to do this active driver window because if we do this we'll leave it in a
+- You know, I want to see how for when you force logout how mobile will react
+- [00:01:01 - 00:01:03] We just need to listen to that, you know
+- It will be an assignment table when release a vehicle for vehicles.
+- [00:02:30 - 00:02:35] This gracious will die with metadata only in the center or dispatch, but that's what's
+- [00:03:16 - 00:03:21] That will have a stop removal action with invoice numbers and all of it
+- So I added that question somewhere here
+- [00:04:52 - 00:04:57] Force logout deny force logout for effective pending.
