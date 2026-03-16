@@ -55,6 +55,77 @@ Important:
 pip install -r requirements.txt
 ```
 
+## No-dependency offline utility
+
+If you want a local utility that works without internet and without installing Python packages, use:
+
+```powershell
+python offline_mom.py `
+  --source C:\meetings\meeting_transcript.txt `
+  --title "Weekly Review"
+```
+
+This utility:
+
+- uses only the Python standard library
+- does not download anything
+- does not call any network APIs
+- generates summary Markdown, summary JSON, and MoM Markdown
+
+Important limitations:
+
+- it starts from a local transcript file
+- it does not transcribe audio or video
+- a ScreenRec share link cannot be processed offline because the media is hosted remotely
+
+Use `main.py` when you want audio or video transcription with already-available local models.
+
+## One-command media to MoM
+
+If your local Whisper model is already available on the machine, you can now use a single command:
+
+```powershell
+python mom_ready.py --source C:\meetings\call.mp4
+```
+
+Or use the repo-provided launcher with no activation step:
+
+```powershell
+run_mom.bat "C:\meetings\call.mp4"
+```
+
+It also accepts a direct media URL or supported ScreenRec share URL:
+
+```powershell
+python mom_ready.py --source "https://screenrec.com/share/your-link"
+```
+
+Notes:
+
+- for a local file, this can run fully locally
+- for a URL, internet is required because the media must be fetched first
+- summarization is heuristic by default, so no LLM is required
+- if no title is provided, the file name is used automatically
+
+## Ready-to-use runtime expectation
+
+This repo is now set up so usage does not require a compile or build step.
+
+What "ready to use" means here:
+
+- no compile step
+- no packaging step
+- no model flag required in the normal path
+- run directly with `mom_ready.py` or `run_mom.bat`
+
+What still must already exist on the machine:
+
+- Python runtime in `.venv`
+- `faster-whisper` already installed in that environment
+- at least one local cached Whisper model
+
+If you want a truly portable drop-in folder with no Python dependency at all, that would need bundling into an executable, which is a separate packaging task.
+
 ## Local models
 
 ### Whisper model

@@ -2,9 +2,12 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
+import queue
 import re
 import tempfile
 import textwrap
+import threading
 import urllib.parse
 import urllib.request
 import wave
@@ -18,6 +21,10 @@ try:
     import numpy as np
 except ImportError:
     np = None
+
+if np is not None and hasattr(np, "frombuffer") and hasattr(np, "fromstring"):
+    # soundcard still calls numpy.fromstring in binary mode, which breaks on numpy 2.x.
+    np.fromstring = np.frombuffer
 
 try:
     import soundcard as sc
@@ -35,6 +42,14 @@ except ImportError:
     Llama = None
 
 DEFAULT_OUTPUT_DIR = Path("outputs")
+DEFAULT_WHISPER_MODEL_CANDIDATES = [
+    "small.en",
+    "base.en",
+    "small",
+    "medium",
+    "tiny",
+    "large-v3",
+]
 
 
 @dataclass
@@ -103,6 +118,8 @@ class LocalMeetingAssistant:
     def _get_whisper_model(self) -> WhisperModel:
         if WhisperModel is None:
             raise RuntimeError("Missing dependency: faster-whisper. Install requirements before transcribing.")
+        if not self.whisper_model_path:
+            self.whisper_model_path = detect_default_whisper_model()
         if not self.whisper_model_path:
             raise RuntimeError("A local Whisper model path is required for offline transcription.")
         if self._whisper_model is None:
@@ -258,14 +275,8 @@ class LiveAudioCapture:
         default_microphone = sc.default_microphone()
         default_speaker = sc.default_speaker()
         return {
-            "microphones": [
-                {"id": m.id, "name": m.name, "default": str(default_microphone is not None and m.id == default_microphone.id)}
-                for m in sc.all_microphones()
-            ],
-            "speakers": [
-                {"id": s.id, "name": s.name, "default": str(default_speaker is not None and s.id == default_speaker.id)}
-                for s in sc.all_speakers()
-            ],
+            "microphones": self._list_microphone_sources(default_microphone),
+            "speakers": self._list_speaker_sources(default_speaker),
         }
 
     def record(self, output_path: Path, microphone_id: str | None, speaker_id: str | None, include_mic: bool, include_speaker: bool, seconds: int | None) -> None:
@@ -341,6 +352,40 @@ class LiveAudioCapture:
         if loopback is None:
             raise RuntimeError("Default speaker loopback could not be opened.")
         return loopback
+
+    def _list_microphone_sources(self, default_microphone: Any) -> list[dict[str, str]]:
+        sources: list[dict[str, str]] = []
+        for microphone in sc.all_microphones():
+            try:
+                source_id = microphone.id
+                source_name = microphone.name
+            except Exception:
+                # Windows can temporarily expose stale endpoints after driver changes; skip them.
+                continue
+            is_default = False
+            try:
+                is_default = default_microphone is not None and source_id == default_microphone.id
+            except Exception:
+                is_default = False
+            sources.append({"id": source_id, "name": source_name, "default": str(is_default)})
+        return sources
+
+    def _list_speaker_sources(self, default_speaker: Any) -> list[dict[str, str]]:
+        sources: list[dict[str, str]] = []
+        for speaker in sc.all_speakers():
+            try:
+                source_id = speaker.id
+                source_name = speaker.name
+            except Exception:
+                # Windows can temporarily expose stale endpoints after driver changes; skip them.
+                continue
+            is_default = False
+            try:
+                is_default = default_speaker is not None and source_id == default_speaker.id
+            except Exception:
+                is_default = False
+            sources.append({"id": source_id, "name": source_name, "default": str(is_default)})
+        return sources
 
     def write_wav(self, output_path: Path, audio: Any) -> None:
         output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -468,6 +513,18 @@ def slugify(value: str) -> str:
     return re.sub(r"[^a-zA-Z0-9_-]+", "_", value.strip()).strip("_").lower() or "meeting"
 
 
+def detect_default_whisper_model() -> str | None:
+    explicit = os.environ.get("MEETING_WHISPER_MODEL")
+    if explicit:
+        return explicit
+    cache_root = Path.home() / ".cache" / "huggingface" / "hub"
+    for candidate in DEFAULT_WHISPER_MODEL_CANDIDATES:
+        cache_dir = cache_root / f"models--Systran--faster-whisper-{candidate}"
+        if cache_dir.exists():
+            return candidate
+    return None
+
+
 def process_media_source(source_path: Path, args: argparse.Namespace) -> tuple[Path, Path, Path, Path]:
     assistant = LocalMeetingAssistant(args.whisper_model, args.llm_model, args.compute_type, args.device, args.language)
     transcript_segments = assistant.transcribe(source_path)
@@ -487,7 +544,28 @@ def run_live_notes(args: argparse.Namespace) -> tuple[Path, Path, Path, Path]:
     transcript_segments: list[TranscriptSegment] = []
     latest_summary = MeetingSummary(title=args.title, generated_at=datetime.now().isoformat(timespec="seconds"), meeting_type="mixed", executive_summary="Live listening started. Waiting for transcript before generating notes.")
     latest_paths = export_outputs(output_dir, base_name, transcript_segments, latest_summary)
-    for index, (offset_frames, audio_chunk) in enumerate(capture.stream_chunks(args.microphone_id, args.speaker_id, not args.no_mic, not args.no_speaker, args.chunk_seconds, args.seconds), start=1):
+    chunk_queue: queue.Queue[tuple[int, Any] | None] = queue.Queue(maxsize=8)
+    capture_errors: list[BaseException] = []
+
+    # Keep recording in the background so transcription work does not interrupt audio capture.
+    def capture_worker() -> None:
+        try:
+            for item in capture.stream_chunks(args.microphone_id, args.speaker_id, not args.no_mic, not args.no_speaker, args.chunk_seconds, args.seconds):
+                chunk_queue.put(item)
+        except BaseException as exc:
+            capture_errors.append(exc)
+        finally:
+            chunk_queue.put(None)
+
+    worker = threading.Thread(target=capture_worker, name="live-audio-capture", daemon=True)
+    worker.start()
+    index = 0
+    while True:
+        queued_item = chunk_queue.get()
+        if queued_item is None:
+            break
+        index += 1
+        offset_frames, audio_chunk = queued_item
         chunk_path = chunk_dir / f"chunk_{index:04d}.wav"
         capture.write_wav(chunk_path, _float_audio_to_pcm(audio_chunk))
         chunk_segments = assistant.transcribe(chunk_path)
@@ -497,6 +575,9 @@ def run_live_notes(args: argparse.Namespace) -> tuple[Path, Path, Path, Path]:
             latest_summary = assistant.summarize(segments_to_text(transcript_segments), args.title)
             latest_paths = export_outputs(output_dir, base_name, transcript_segments, latest_summary)
             print(f"Updated live notes after chunk {index}: {latest_paths[1].name}, {latest_paths[3].name}")
+    worker.join()
+    if capture_errors:
+        raise RuntimeError(f"Live capture failed: {capture_errors[0]}") from capture_errors[0]
     if transcript_segments:
         latest_summary = assistant.summarize(segments_to_text(transcript_segments), args.title)
         latest_paths = export_outputs(output_dir, base_name, transcript_segments, latest_summary)
